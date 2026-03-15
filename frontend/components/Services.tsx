@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 
 const services = [
   {
@@ -42,8 +43,35 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const [activeId, setActiveId] = useState<number | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleTouchStart = (id: number) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActiveId(id);
+  };
+
+  const handleTouchEnd = () => {
+    // Keep the hover/active effect visible a bit longer after touch ends
+    timeoutRef.current = setTimeout(() => {
+      setActiveId(null);
+      timeoutRef.current = null;
+    }, 600);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="w-full bg-white pt-16 pb-4">
+    <div id="services" className="w-full bg-white pt-16 pb-4">
       {/* Header */}
       <div className="text-center mb-12 px-4">
         <h1 className="text-4xl md:text-5xl font-bold mt-6 mb-4 text-black">
@@ -56,11 +84,18 @@ const ServicesSection = () => {
 
       {/* Services List */}
       <div className="w-full divide-y divide-gray-200 border-t border-gray-200">
-        {services.map((service) => (
-          <div
-            key={service.id}
-            className="group flex items-center gap-6 py-6 cursor-pointer px-6 md:px-16 transition-colors duration-300 hover:bg-black"
-          >
+        {services.map((service) => {
+          const isActive = activeId === service.id;
+
+          return (
+            <div
+              key={service.id}
+              className={`group flex items-center gap-6 py-6 cursor-pointer px-6 md:px-16 transition-colors duration-300 hover:bg-black ${
+                isActive ? "bg-black" : ""
+              }`}
+              onTouchStart={() => handleTouchStart(service.id)}
+              onTouchEnd={handleTouchEnd}
+            >
             {/* Image */}
             <div className="flex-shrink-0 w-28 h-16 rounded-full overflow-hidden relative">
               <Image
@@ -71,42 +106,60 @@ const ServicesSection = () => {
               />
             </div>
 
-            {/* Title */}
-            <div className="w-64 flex-shrink-0">
-              <h2 className="text-xl md:text-2xl font-bold text-black group-hover:text-white leading-tight transition-colors duration-300">
-                {service.title}
-              </h2>
-            </div>
+              {/* Title */}
+              <div className="w-64 flex-shrink-0">
+                <h2
+                  className={`text-xl md:text-2xl font-bold leading-tight transition-colors duration-300 ${
+                    isActive ? "text-white" : "text-black group-hover:text-white"
+                  }`}
+                >
+                  {service.title}
+                </h2>
+              </div>
 
-            {/* Description */}
-            <div className="flex-1 hidden md:block">
-              <p className="text-gray-500 group-hover:text-gray-300 text-sm md:text-base leading-relaxed transition-colors duration-300">
-                {service.description}
-              </p>
-            </div>
+              {/* Description */}
+              <div className="flex-1 hidden md:block">
+                <p
+                  className={`text-sm md:text-base leading-relaxed transition-colors duration-300 ${
+                    isActive
+                      ? "text-gray-300"
+                      : "text-gray-500 group-hover:text-gray-300"
+                  }`}
+                >
+                  {service.description}
+                </p>
+              </div>
 
-            {/* Arrow - yellow on hover */}
-            {/* Arrow - white arrow on yellow circle hover */}
-<div className="flex-shrink-0 ml-auto">
-  <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full  transition-colors duration-300 group-hover:bg-yellow-400 group-hover:border-yellow-400">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-5 h-5 md:w-6 md:h-6 text-black group-hover:text-white transition-colors duration-300"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M7 17L17 7M17 7H7M17 7v10"
-      />
-    </svg>
-  </div>
-</div>
-          </div>
-        ))}
+              {/* Arrow - yellow on hover / active */}
+              <div className="flex-shrink-0 ml-auto">
+                <div
+                  className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full transition-colors duration-300 ${
+                    isActive
+                      ? "bg-yellow-400 border-yellow-400"
+                      : "group-hover:bg-yellow-400 group-hover:border-yellow-400"
+                  }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 ${
+                      isActive ? "text-white" : "text-black group-hover:text-white"
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M7 17L17 7M17 7H7M17 7v10"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

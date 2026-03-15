@@ -18,7 +18,7 @@ const CustomCursor = () => {
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (
-        target.tagName === "BUTTON" || 
+        target.tagName === "BUTTON" ||
         target.closest("button") ||
         target.tagName === "A" ||
         target.closest("a")
@@ -30,7 +30,7 @@ const CustomCursor = () => {
     const handleMouseOut = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (
-        target.tagName === "BUTTON" || 
+        target.tagName === "BUTTON" ||
         target.closest("button") ||
         target.tagName === "A" ||
         target.closest("a")

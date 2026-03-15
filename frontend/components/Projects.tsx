@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 
-const ProjectsSection = () => {
-  const projects = [
+const projects = [
     {
       title: "Premium Business Cards",
       desc: "Custom-designed cards with matte, gloss, and spot UV finishes for elite brands.",
@@ -54,8 +53,10 @@ const ProjectsSection = () => {
     },
   ];
 
+const ProjectsSection = () => {
+
   return (
-    <section className="py-24 px-6 bg-[#EDEDED]
+    <section id="projects" className="py-24 px-6 bg-[#EDEDED]
 ">
       <div className="max-w-4xl mx-auto text-center mb-16 space-y-4">
         <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-4 text-black">See What We've Built</h2>
@@ -66,49 +67,87 @@ const ProjectsSection = () => {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[340px]">
         {projects.map((p, i) => (
-          <div
-            key={i}
-            className={`${p.bgColor} ${p.span} group relative rounded-[22px] overflow-hidden transition-all duration-700 border border-gray-100 cursor-pointer flex flex-col`}
-          >
-            {/* GRADIENT OVERLAY LAYER - This activates on hover */}
-            <div 
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"
-              style={{ background: p.hoverBg }}
-            />
-
-            {/* 1. INITIAL CONTENT LAYER */}
-            <div className={`relative z-20 h-full flex flex-col items-center text-center p-8 transition-all duration-500 group-hover:opacity-0 group-hover:scale-95 ${p.align}`}>
-              <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${p.text}`}>
-                {p.title}
-              </h3>
-              <p className={`text-sm md:text-base opacity-90 max-w-xs ${p.text}`}>
-                {p.desc}
-              </p>
-              
-              <div className="absolute inset-0 z-[-1]">
-                <div className="absolute inset-0 bg-black/45 z-10" />
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            {/* 2. HOVER STATE (Boxed image with border) */}
-            <div className="absolute inset-0 z-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-90 group-hover:scale-100">
-              <div className="w-[85%] h-[75%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/40">
-                <img
-                  src={p.hoverImg}
-                  className="w-full h-full object-cover"
-                  alt="Hover Preview"
-                />
-              </div>
-            </div>
-          </div>
+          <ProjectCard key={i} project={p} />
         ))}
       </div>
     </section>
+  );
+};
+
+type Project = (typeof projects)[number];
+
+const ProjectCard = ({ project }: { project: Project }) => {
+  const [active, setActive] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleTouchStart = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActive(true);
+  };
+
+  const handleTouchEnd = () => {
+    // keep hover/active state a bit longer after touch ends
+    timeoutRef.current = setTimeout(() => {
+      setActive(false);
+      timeoutRef.current = null;
+    }, 600);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      className={`${project.bgColor} ${project.span} group relative rounded-3xl overflow-hidden transition-all duration-700 border border-gray-100 cursor-pointer flex flex-col active:scale-95`}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* GRADIENT OVERLAY LAYER */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-700 z-0 ${
+          active ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+        }`}
+        style={{ background: project.hoverBg }}
+      />
+
+      {/* INITIAL CONTENT LAYER */}
+      <div
+        className={`relative z-20 h-full flex flex-col items-center text-center p-8 transition-all duration-500 ${project.align} ${
+          active ? "opacity-0 scale-95" : "opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-95"
+        }`}
+      >
+        <h3 className={`text-2xl md:text-3xl font-bold mb-4 ${project.text}`}>
+          {project.title}
+        </h3>
+        <p className={`text-sm md:text-base opacity-90 max-w-xs ${project.text}`}>
+          {project.desc}
+        </p>
+
+        <div className="absolute inset-0 z-[-1]">
+          <div className="absolute inset-0 bg-black/45 z-10" />
+          <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      {/* HOVER / ACTIVE STATE */}
+      <div
+        className={`absolute inset-0 z-30 flex items-center justify-center transition-all duration-500 transform scale-90 ${
+          active ? "opacity-100 scale-100" : "opacity-0 group-hover:opacity-100 group-hover:scale-100"
+        }`}
+      >
+        <div className="w-[85%] h-[75%] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/40">
+          <img src={project.hoverImg} className="w-full h-full object-cover" alt="Hover Preview" />
+        </div>
+      </div>
+    </div>
   );
 };
 

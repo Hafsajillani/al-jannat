@@ -80,7 +80,7 @@ const Testimonials = () => {
   ]
 
   return (
-    <div className="w-full min-h-fit font-syne-500 flex justify-center items-center">
+    <div id="testimonials" className="w-full min-h-fit font-syne-500 flex justify-center items-center">
       <div className="w-[90%] md:w-[90%] flex flex-col gap-6 md:gap-12">
         <h1 className="text-2xl text-center md:text-[3rem] font-bold">What Our Clients Are
           <span className=""> Saying</span></h1>

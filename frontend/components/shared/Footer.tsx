@@ -11,10 +11,10 @@ const Footer = () => {
   ]
 
   const footerLinks = [
-    { name: 'Services', url: '/services' },
-    { name: 'Projects', url: '/projects' },
-    { name: 'Pricing', url: '/pricing' },
-    { name: 'Testimonials', url: '/testimonials' },
+    { name: 'About Us', url: '/#about'},
+    { name: 'Services', url: '/#services' },
+    { name: 'Projects', url: '/#projects' },
+    { name: 'Testimonials', url: '/#testimonials' },
   ]
 
   return (
@@ -33,7 +33,7 @@ const Footer = () => {
                 </svg>
                 <a href="mailto:business@acmchapter.design" className="hover:text-gray-300 transition-colors">
                   info@click2print.pk
-                  <br/>
+                  <br />
                   faizi.click2print@gmail.com
                 </a>
               </div>
@@ -44,7 +44,7 @@ const Footer = () => {
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
                 <p className="text-gray-300">62-A Shan Arcade Barkat Market New,
-                Garden Town, Lahore, 54000</p>
+                  Garden Town, Lahore, 54000</p>
               </div>
 
               {/* Social Icons */}
@@ -76,7 +76,7 @@ const Footer = () => {
             <div className="flex flex-col gap-6">
               <h2 className="text-2xl md:text-3xl font-semibold">Subscribe to our newsletter</h2>
               <p className="text-gray-300">Get a summary of what we've been working on.</p>
-              
+
               <form className="flex flex-col gap-4">
                 <input
                   type="email"
@@ -97,48 +97,48 @@ const Footer = () => {
       </div>
 
       {/* Brand Section */}
-<div className="w-full px-6 md:px-12 lg:px-20 py-12 md:py-16">
-  <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
-    {/* Large Brand Text */}
-    <div className="flex flex-col items-center text-center">
-      <div className="relative flex items-center">
-        <h1 className="text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold italic text-white font-Zen Dots leading-none">
-          al jannat
-        </h1>
-        {/* The yellow square icon */}
-        <div className="w-3 h-3 md:w-6 md:h-6 bg-[#F5C842] ml-2 self-center"></div>
-      </div>
-      
-      {/* Updated Scan n print Subtext */}
-      <span style={{
-        fontSize: "clamp(1rem, 2.5vw, 2rem)", // Scales from 16px to 32px based on screen size
-        color: "#F5C842",
-        textTransform: "uppercase",
-        letterSpacing: "0.6em", 
-        fontWeight: 700,
-        marginTop: "10px",
-        display: "block",
-        width: "100%",
-        textAlign: "center"
-      }}>
-        Scan n print
-      </span>
-    </div>
+      <div className="w-full px-6 md:px-12 lg:px-20 py-12 md:py-16">
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-12">
+          {/* Large Brand Text */}
+          <div className="flex flex-col items-center text-center">
+            <div className="relative flex items-center">
+              <h1 className="text-5xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold italic text-white font-Zen Dots leading-none">
+                al jannat
+              </h1>
+              {/* The yellow square icon */}
+              <div className="w-3 h-3 md:w-6 md:h-6 bg-[#F5C842] ml-2 self-center"></div>
+            </div>
 
-    {/* Navigation Links */}
-    <nav className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-base md:text-lg">
-      {footerLinks.map((link) => (
-        <Link
-          key={link.name}
-          href={link.url}
-          className="text-gray-300 hover:text-white transition-colors"
-        >
-          {link.name}
-        </Link>
-      ))}
-    </nav>
-  </div>
-</div>
+            {/* Updated Scan n print Subtext */}
+            <span style={{
+              fontSize: "clamp(1rem, 2.5vw, 2rem)", // Scales from 16px to 32px based on screen size
+              color: "#F5C842",
+              textTransform: "uppercase",
+              letterSpacing: "0.6em",
+              fontWeight: 700,
+              marginTop: "10px",
+              display: "block",
+              width: "100%",
+              textAlign: "center"
+            }}>
+              Scan n print
+            </span>
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="flex flex-wrap justify-center items-center gap-6 md:gap-10 text-base md:text-lg">
+            {footerLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.url}
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
 
       {/* Bottom Copyright */}
       <div className="w-full border-t border-gray-700 px-6 md:px-12 lg:px-20 py-6">

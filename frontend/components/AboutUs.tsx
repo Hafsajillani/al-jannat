@@ -24,23 +24,27 @@ const AboutSection = () => {
   ];
 
   return (
-    <div className="w-full text-white pt-16 pb-20 px-4" style={{ backgroundColor: '#0F0F0F' }}>
+    <div
+      id="about"
+      className="w-full text-white pt-16 pb-20 px-4"
+      style={{ backgroundColor: '#0F0F0F' }}
+    >
       {/* Header Section */}
       <div className="max-w-6xl mx-auto text-center mb-16">
-      <button style={{
-    background: "#111",
-    color: '#FFFFFFB8',
-    fontSize: "16px",
-    fontWeight: 600,
-    padding: "14px 36px",
-    border: "1px solid gray",
-    borderRadius: "999px",
-    cursor: "pointer",
-    transition: "background 0.2s ease, border 0.2s ease",
-  }}
-  >
-    About Us
-  </button>
+        <button style={{
+          background: "#111",
+          color: '#FFFFFFB8',
+          fontSize: "16px",
+          fontWeight: 600,
+          padding: "14px 36px",
+          border: "1px solid gray",
+          borderRadius: "999px",
+          cursor: "pointer",
+          transition: "background 0.2s ease, border 0.2s ease",
+        }}
+        >
+          About Us
+        </button>
 
         <h1 className="text-4xl md:text-5xl font-bold mt-6 mb-4 text-white">
           We Print. We Pack. We Deliver.

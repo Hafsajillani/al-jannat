@@ -2,7 +2,7 @@ import { Button } from "../ui/button"
 
 const Contact = () => {
   return (
-    <div className="w-full min-h-screen font-syne-500 flex justify-center items-center pb-20 px-4 sm:px-6 md:px-8">
+    <div id="contact" className="scroll-mt-28 w-full min-h-screen font-syne-500 flex justify-center items-center pb-20 px-4 sm:px-6 md:px-8">
       <div className="w-full max-w-7xl flex flex-col gap-4">
         {/* Header Section */}
         <div className="flex flex-col items-center gap-2 text-center">
@@ -17,7 +17,7 @@ const Contact = () => {
           {/* Left Side - Contact Information */}
           <div className="flex flex-col gap-4">
             <h2 className="text-3xl md:text-3xl font-bold mb-4">Contact</h2>
-            
+
             {/* Address */}
             <div className="flex items-center gap-4">
               <div className="shrink-0">
@@ -27,8 +27,8 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-gray-700 text-base md:text-lg">
-                62-A Shan Arcade Barkat Market New,
-                Garden Town, Lahore, 54000.
+                  62-A Shan Arcade Barkat Market New,
+                  Garden Town, Lahore, 54000.
                 </p>
               </div>
             </div>
@@ -43,7 +43,7 @@ const Contact = () => {
               </div>
               <div>
                 <a href="mailto:business@hashpotato.design" className="text-gray-700 hover:text-yellow-400 transition-colors text-base md:text-lg">
-                info@click2print.pk
+                  info@click2print.pk
                 </a>
               </div>
             </div>
@@ -57,7 +57,7 @@ const Contact = () => {
               </div>
               <div>
                 <a href="tel:+13475878695" className="text-gray-700 hover:text-yellow-400 transition-colors text-base md:text-lg">
-                +92 336 3333896
+                  +92 336 3333896
                 </a>
               </div>
             </div>
@@ -98,11 +98,11 @@ const Contact = () => {
 
               {/* Submit Button */}
               <Button
-  type="submit"
-  className="w-full bg-yellow-400 text-white font-semibold px-8 py-6 rounded-full hover:bg-white hover:text-yellow-400 hover:border hover:border-yellow-400 transition-colors duration-300 hover:cursor-pointer"
->
-  Submit
-</Button>
+                type="submit"
+                className="w-full bg-yellow-400 text-white font-semibold px-8 py-6 rounded-full hover:bg-white hover:text-yellow-400 hover:border hover:border-yellow-400 active:bg-white active:text-yellow-400 active:border active:border-yellow-400 transition-colors duration-300 hover:cursor-pointer active:cursor-pointer"
+              >
+                Submit
+              </Button>
             </form>
           </div>
         </div>
