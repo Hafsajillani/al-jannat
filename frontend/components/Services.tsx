@@ -55,7 +55,6 @@ const ServicesSection = () => {
   };
 
   const handleTouchEnd = () => {
-    // Keep the hover/active effect visible a bit longer after touch ends
     timeoutRef.current = setTimeout(() => {
       setActiveId(null);
       timeoutRef.current = null;
@@ -90,37 +89,38 @@ const ServicesSection = () => {
           return (
             <div
               key={service.id}
-              className={`group flex items-center gap-6 py-6 cursor-pointer px-6 md:px-16 transition-colors duration-300 hover:bg-black ${
-                isActive ? "bg-black" : ""
+              className={`group flex flex-col md:flex-row md:items-center gap-4 md:gap-6 py-10 md:py-6 cursor-pointer px-6 md:px-16 transition-colors duration-300 hover:bg-black ${
+                isActive ? "bg-black" : "bg-white"
               }`}
               onTouchStart={() => handleTouchStart(service.id)}
               onTouchEnd={handleTouchEnd}
             >
-            {/* Image */}
-            <div className="flex-shrink-0 w-28 h-16 rounded-full overflow-hidden relative">
-              <Image
-                src={service.image}
-                alt={service.title}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
+              {/* Mobile Header Row: Image + Title */}
+              <div className="flex items-center gap-6">
+                <div className="flex-shrink-0 w-28 h-14 md:w-28 md:h-16 rounded-full overflow-hidden relative">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
 
-              {/* Title */}
-              <div className="w-64 flex-shrink-0">
-                <h2
-                  className={`text-xl md:text-2xl font-bold leading-tight transition-colors duration-300 ${
-                    isActive ? "text-white" : "text-black group-hover:text-white"
-                  }`}
-                >
-                  {service.title}
-                </h2>
+                <div className="flex-1 md:w-64 md:flex-shrink-0">
+                  <h2
+                    className={`text-xl md:text-2xl font-bold leading-tight transition-colors duration-300 ${
+                      isActive ? "text-white" : "text-black group-hover:text-white"
+                    }`}
+                  >
+                    {service.title}
+                  </h2>
+                </div>
               </div>
 
-              {/* Description */}
-              <div className="flex-1 hidden md:block">
+              {/* Description Body */}
+              <div className="mt-2 md:mt-0 md:flex-1">
                 <p
-                  className={`text-sm md:text-base leading-relaxed transition-colors duration-300 ${
+                  className={`text-base md:text-base leading-relaxed transition-colors duration-300 ${
                     isActive
                       ? "text-gray-300"
                       : "text-gray-500 group-hover:text-gray-300"
@@ -130,18 +130,18 @@ const ServicesSection = () => {
                 </p>
               </div>
 
-              {/* Arrow - yellow on hover / active */}
-              <div className="flex-shrink-0 ml-auto">
+              {/* Clean Arrow Circle (No border, original yellow) */}
+              <div className="mt-4 md:mt-0 md:flex-shrink-0 md:ml-auto">
                 <div
-                  className={`w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full transition-colors duration-300 ${
+                  className={`w-12 h-12 flex items-center justify-center rounded-full transition-all duration-300 ${
                     isActive
-                      ? "bg-yellow-400 border-yellow-400"
-                      : "group-hover:bg-yellow-400 group-hover:border-yellow-400"
+                      ? "bg-yellow-400"
+                      : "bg-transparent group-hover:bg-yellow-400"
                   }`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className={`w-5 h-5 md:w-6 md:h-6 transition-colors duration-300 ${
+                    className={`w-6 h-6 transition-colors duration-300 ${
                       isActive ? "text-white" : "text-black group-hover:text-white"
                     }`}
                     fill="none"
