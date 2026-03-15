@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { X, Send } from 'lucide-react';
 
-const CustomChatIcon = ({ size = 60, iconSize = 55 }) => (
+const CustomChatIcon = ({ size = 60, iconSize = 54 }) => (
     <div
         style={{ width: size, height: size, backgroundColor: '#F5C842' }}
         className="rounded-full flex items-center justify-center shadow-lg"
