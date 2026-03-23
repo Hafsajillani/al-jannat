@@ -1,243 +1,103 @@
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { Button } from '../ui/button';
+import { Menu, X } from 'lucide-react';
 
-const servicesMenu = [
-  { label: "Company", href: "/company" },
-  { label: "Web SEO & Tools", href: "/web-seo-tools" },
-  { label: "Printing", href: "/printing" },
-  { label: "Design & Production", href: "/design-production" },
-  { label: "Forms & Policies", href: "/forms-policies" },
-  { label: "Careers", href: "/careers" },
+const productItems = [
+  "All Products", "Business Cards", "Marketing & Stationery", 
+  "Signs & Banners", "Invitations & Events", "Stickers & Labels", 
+  "Gifts & Décor", "Apparel", "Industries", "Services"
 ];
 
-const Logo = () => (
-  <>
-    <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
-    `}</style>
-    <div className="flex flex-col items-start leading-tight">
-      <div className="flex items-center gap-0">
-        <span style={{
-          fontFamily: "'Zen Dots', cursive",
-          fontSize: "1.75rem",
-          fontWeight: 400,
-          letterSpacing: "0.02em",
-          color: "white",
-          lineHeight: "1",
-        }}>
-          al jannat
-        </span>
-        <span style={{
-          display: "inline-block",
-          width: "8px",
-          height: "8px",
-          borderRadius: "50%",
-          backgroundColor: "#F5C842",
-          marginLeft: "2px",
-          alignSelf: "flex-end",
-          marginBottom: "6px",
-        }} />
-      </div>
-      <span style={{
-        fontSize: "0.65rem",
-        color: "#F5C842",
-        textTransform: "uppercase",
-        letterSpacing: "0.45em",
-        fontWeight: 600,
-        marginTop: "4px",
-        paddingLeft: "2px"
-      }}>
-        Scan n print
-      </span>
-    </div>
-  </>
-);
-
-const ServicesDropdown = ({ onClose }: { onClose?: () => void }) => {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  return (
-    <div ref={ref} className="relative inline-block">
-      <button
-        type="button"
-        onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 text-base hover:bg-white/10 font-bold px-4 py-2 rounded-full transition-all cursor-pointer text-white"
-      >
-        Services
-        <ChevronDown
-          size={14}
-          style={{
-            transition: "transform 0.2s",
-            transform: open ? "rotate(180deg)" : "rotate(0deg)",
-          }}
-        />
-      </button>
-
-      {open && (
-        <div style={{
-          position: "absolute",
-          top: "100%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          marginTop: "12px",
-          width: "260px",
-          backgroundColor: "#111111",
-          borderRadius: "16px",
-          padding: "12px",
-          zIndex: 100,
-          border: "1px solid rgba(255,255,255,0.1)",
-          boxShadow: "0 20px 60px rgba(0,0,0,0.8)",
-          display: "flex",
-          flexDirection: "column",
-          gap: "2px",
-        }}>
-          {servicesMenu.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              onClick={() => { setOpen(false); onClose?.(); }}
-              className="text-white block p-3 rounded-xl hover:bg-white/10 transition-colors font-semibold no-underline text-[15px]"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
+const companyItems = [
+  "About Us", "Contact Us", "Our Clients", "List of Tools"
+];
 
 const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+  // Helper to create clean URLs for the product bar
+  const createSlug = (item: string) => `/${item.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`;
 
-      // Header Visibility logic
-      if (currentScrollY < 50) {
-        setShowHeader(true);
-      } else if (currentScrollY > lastScrollY) {
-        setShowHeader(false); 
-      } else {
-        setShowHeader(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  // Helper to handle specific page routing for company links
+  const getCompanyLink = (item: string) => {
+    switch (item) {
+      case "About Us": return "/about";
+      case "Contact Us": return "/contact";
+      case "Our Clients": return "/clients";
+      case "List of Tools": return "/tools";
+      default: return createSlug(item);
+    }
+  };
 
   return (
-    <div
-      className={`w-full pt-6 pb-2 px-4 sticky top-0 z-50 transition-transform duration-300 ${
-        showHeader ? "translate-y-0" : "-translate-y-full"
-      }`}
-    >
-      {/* Desktop Header */}
-      <div className="hidden lg:block w-full max-w-6xl rounded-full h-20 mx-auto bg-black text-white px-6">
-        <div className="flex justify-between items-center h-full">
-          <Logo />
-          <nav>
-            <ul className="flex gap-2 items-center">
-              <li><Link href="/#top" className="text-base hover:bg-white/10 font-bold px-4 py-2 rounded-full transition-all">Home</Link></li>
-              <li><Link href="/#about" className="text-base hover:bg-white/10 font-bold px-4 py-2 rounded-full transition-all">About Us</Link></li>
-              <li><ServicesDropdown /></li>
-              <li><Link href="/#projects" className="text-base hover:bg-white/10 font-bold px-4 py-2 rounded-full transition-all">Projects</Link></li>
-              <li><Link href="/#testimonials" className="text-base hover:bg-white/10 font-bold px-4 py-2 rounded-full transition-all">Testimonials</Link></li>
-            </ul>
-          </nav>
-          <Link href="contact">
-            <Button className="bg-transparent text-white font-bold px-10 py-7 rounded-full border-2 border-white hover:bg-white hover:text-black transition-all cursor-pointer">
-              Contact Us
-            </Button>
+    <>
+      <header className="fixed top-0 left-0 w-full bg-white z-[1000] shadow-sm text-base">
+        {/* Top Navigation Bar */}
+        <div className="max-w-[1400px] mx-auto px-6 h-14 flex items-center justify-between border-b border-gray-100">
+          <Link href="/" className="flex flex-col flex-shrink-0">
+            <div className="flex items-baseline gap-0.5">
+              <span className="text-2xl font-bold text-[#1a2e35]">al jannat</span>
+              <span className="h-1 w-1 rounded-full bg-[#79A88B] mb-1"></span>
+            </div>
+            <span className="inline-block text-[10px] text-[#79A88B] font-bold uppercase tracking-[0.6em] -mt-1">
+              SCAN N PRINT
+            </span>
           </Link>
-        </div>
-      </div>
 
-      {/* Tablet Header */}
-      <div className="hidden md:block lg:hidden w-full max-w-4xl rounded-full h-16 mx-auto bg-black text-white px-4">
-        <div className="flex justify-between items-center h-full">
-          <Logo />
-          <nav>
-            <ul className="flex gap-1 items-center">
-              <li><Link href="/#top" className="text-sm hover:bg-white/10 px-3 py-2 rounded-full">Home</Link></li>
-              <li><Link href="/#about" className="text-sm hover:bg-white/10 px-3 py-2 rounded-full">About Us</Link></li>
-              <li><ServicesDropdown /></li>
-              <li><Link href="/#projects" className="text-sm hover:bg-white/10 px-3 py-2 rounded-full">Projects</Link></li>
-            </ul>
+          {/* Corrected Desktop Company Links */}
+          <nav className="hidden lg:flex items-center gap-12">
+            {companyItems.map((item) => (
+              <Link 
+                key={item}
+                href={getCompanyLink(item)} 
+                className="text-[12px] font-bold text-[#1a2e35] hover:text-[#79A88B] transition-all uppercase tracking-widest"
+              >
+                {item}
+              </Link>
+            ))}
           </nav>
-          <Link href="contact">
-            <Button className="bg-transparent text-white text-sm font-bold px-6 py-5 rounded-full border border-white hover:bg-white hover:text-black transition-all cursor-pointer">
-              Contact
-            </Button>
-          </Link>
+
+          <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-      </div>
 
-      {/* Mobile Header */}
-      <div className="md:hidden rounded-full h-16 bg-black text-white px-4 flex justify-between items-center">
-        <Logo />
-        <Button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="text-white w-12 h-12 -mr-2 hover:bg-white/10 rounded-full transition-all"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </Button>
-      </div>
-
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="md:hidden absolute left-4 right-4 z-50 mt-4 rounded-3xl bg-black text-white p-4 border border-white/10 shadow-2xl">
-          <nav>
-            <ul className="flex flex-col gap-2">
-              <li><Link href="/#top" className="text-base font-bold hover:bg-white/10 px-4 py-3 rounded-full text-center block" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
-              <li><Link href="/#about" className="text-base font-bold hover:bg-white/10 px-4 py-3 rounded-full text-center block" onClick={() => setMobileMenuOpen(false)}>About Us</Link></li>
-              <li>
-                <button
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="w-full flex items-center justify-center gap-2 text-base font-bold hover:bg-white/10 px-4 py-3 rounded-full transition-all"
-                >
-                  Services
-                  <ChevronDown size={14} style={{ transition: "transform 0.2s", transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)" }} />
-                </button>
-                {mobileServicesOpen && (
-                  <div className="mt-2 bg-white/5 rounded-2xl p-2 flex flex-col gap-1">
-                    {servicesMenu.map((item) => (
-                      <Link key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-sm font-semibold text-white p-3 rounded-xl hover:bg-white/10 text-center block">{item.label}</Link>
-                    ))}
-                  </div>
-                )}
-              </li>
-              <li><Link href="/#projects" className="text-base font-bold hover:bg-white/10 px-4 py-3 rounded-full text-center block" onClick={() => setMobileMenuOpen(false)}>Projects</Link></li>
+        {/* Product Secondary Bar */}
+        <nav className="bg-white hidden lg:block border-t border-gray-50">
+          <div className="max-w-[1400px] mx-auto px-6">
+            <ul className="flex justify-between items-center h-10">
+              {productItems.map((item) => (
+                <li key={item}>
+                  <Link 
+                    href={createSlug(item)} 
+                    className="text-[12px] font-bold text-gray-500 hover:text-black transition-colors"
+                  >
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </nav>
-          <Link href="contact" onClick={() => setMobileMenuOpen(false)}>
-            <Button className="w-full mt-4 bg-white text-black font-bold py-6 rounded-full hover:bg-gray-200 transition-all cursor-pointer">
-              Contact Us
-            </Button>
-          </Link>
-        </div>
-      )}
-    </div>
+          </div>
+        </nav>
+
+        {/* Mobile Menu (Optional logic for better UX) */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden bg-white border-t border-gray-100 p-6 flex flex-col gap-4">
+             {companyItems.map((item) => (
+              <Link key={item} href={getCompanyLink(item)} onClick={() => setIsMobileMenuOpen(false)}>
+                {item}
+              </Link>
+            ))}
+          </div>
+        )}
+      </header>
+
+      {/* Spacers to prevent content from going under the fixed header */}
+      <div className="h-[96px] hidden lg:block" /> 
+      <div className="h-14 lg:hidden" />
+    </>
   );
 };
 

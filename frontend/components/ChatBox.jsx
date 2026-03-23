@@ -5,7 +5,7 @@ import { X, Send } from 'lucide-react';
 
 const CustomChatIcon = ({ size = 60, iconSize = 54 }) => (
     <div
-        style={{ width: size, height: size, backgroundColor: '#F5C842' }}
+        style={{ width: size, height: size, backgroundColor: '#79A88B' }}
         className="rounded-full flex items-center justify-center shadow-lg"
     >
         <svg width={iconSize} height={iconSize} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,7 +74,7 @@ const Chatbot = () => {
         <div className="fixed bottom-6 right-6 z-50 text-base">
             {isOpen && (
                 <div className="absolute bottom-20 right-0 w-[320px] sm:w-[360px] max-h-[80vh] h-[500px] bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 duration-300">
-                    <div style={{ backgroundColor: '#F5C842' }} className="text-white px-5 py-4 flex justify-between items-center shrink-0">
+                    <div style={{ backgroundColor: '#79A88B' }} className="text-white px-5 py-4 flex justify-between items-center shrink-0">
                         <div className="flex items-center gap-3">
                             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                             <span className="font-bold text-[16px]">Scan n Print Support</span>
@@ -89,7 +89,7 @@ const Chatbot = () => {
                             <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                                 <div className={`max-w-[85%] px-4 py-3 text-[14px] leading-relaxed whitespace-pre-line shadow-sm
                                     ${msg.sender === 'user'
-                                        ? 'bg-[#F5C842] text-white rounded-2xl rounded-tr-none'
+                                        ? 'bg-[#79A88B] text-white rounded-2xl rounded-tr-none'
                                         : 'bg-white text-gray-800 rounded-2xl rounded-tl-none border border-gray-100'
                                     }`}>
                                     {msg.text}
@@ -111,7 +111,7 @@ const Chatbot = () => {
                     <div className="p-4 bg-white border-t border-gray-100 shrink-0">
                         <form
                             onSubmit={(e) => { e.preventDefault(); handleSend(); }}
-                            className="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2 focus-within:bg-white focus-within:ring-1 focus-within:ring-[#F5C842] transition-all"
+                            className="flex items-center gap-2 bg-gray-100 rounded-full px-4 py-2 focus-within:bg-white focus-within:ring-1 focus-within:ring-[#79A88B] transition-all"
                         >
                             <input
                                 type="text"
@@ -123,7 +123,7 @@ const Chatbot = () => {
                             <button
                                 type="submit"
                                 disabled={!inputValue.trim() || isTyping}
-                                className="text-[#F5C842] disabled:text-gray-400 p-1"
+                                className="text-[#79A88B] disabled:text-gray-400 p-1"
                             >
                                 <Send size={20} />
                             </button>
@@ -137,7 +137,7 @@ const Chatbot = () => {
                 className="transition-transform duration-300 hover:scale-110 active:scale-95 outline-none"
             >
                 {isOpen ? (
-                    <div className="w-[60px] h-[60px] bg-white border border-gray-200 rounded-full flex items-center justify-center shadow-xl text-[#F5C842]">
+                    <div className="w-[60px] h-[60px] bg-white border border-gray-200 rounded-full flex items-center justify-center shadow-xl text-[#79A88B]">
                         <X size={32} />
                     </div>
                 ) : (

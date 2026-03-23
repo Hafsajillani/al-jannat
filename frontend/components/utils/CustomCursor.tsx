@@ -85,7 +85,7 @@ const CustomCursor = () => {
         height: "40px",
         left: `${cursorPosition.x}px`,
         top: `${cursorPosition.y}px`,
-        borderColor: "#F5C842",
+        borderColor: "#369242",
         transform: `translate(-50%, -50%) scale(${isHoveringButton ? 1.5 : 1})`,
         transition: "transform 0.2s ease-out",
       }}

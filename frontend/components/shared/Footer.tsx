@@ -32,9 +32,7 @@ const Footer = () => {
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
                 <a href="mailto:business@acmchapter.design" className="hover:text-gray-300 transition-colors">
-                  info@click2print.pk
-                  <br />
-                  faizi.click2print@gmail.com
+                scanprint47@gmail.com
                 </a>
               </div>
 
@@ -43,8 +41,7 @@ const Footer = () => {
                 <svg className="w-5 h-5 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
-                <p className="text-gray-300">62-A Shan Arcade Barkat Market New,
-                  Garden Town, Lahore, 54000</p>
+                <p className="text-gray-300">Central Plaza Rd, Commercial Area Garden Town, Lahore, Pakistan</p>
               </div>
 
               {/* Social Icons */}
@@ -106,13 +103,12 @@ const Footer = () => {
                 al jannat
               </h1>
               {/* The yellow square icon */}
-              <div className="w-3 h-3 md:w-6 md:h-6 bg-[#F5C842] ml-2 self-center"></div>
+              <div className="w-3 h-3 rounded-xl md:w-6 md:h-6 bg-[#79A88B] ml-4 self-center"></div>
             </div>
-
             {/* Updated Scan n print Subtext */}
             <span style={{
               fontSize: "clamp(1rem, 2.5vw, 2rem)", // Scales from 16px to 32px based on screen size
-              color: "#F5C842",
+              color: "#79A88B",
               textTransform: "uppercase",
               letterSpacing: "0.6em",
               fontWeight: 700,
