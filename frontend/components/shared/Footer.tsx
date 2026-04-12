@@ -91,16 +91,11 @@ export default function Footer() {
       <footer className="footer-cream">
 
         {/* ── MAIN THREE-COLUMN GRID ── */}
-        <div style={{
-          padding: "3rem 2.5rem 2rem",
-          display: "grid",
-          gridTemplateColumns: "2fr 1fr 1fr",
-          gap: "3rem",
-          alignItems: "start",
-        }}>
+        <div className="mx-auto max-w-[1400px] px-6 py-12 md:px-10 md:py-16 grid grid-cols-1 md:grid-cols-[1.8fr_1.2fr_1fr] gap-10 md:gap-16 items-start">
+
 
           {/* ── COLUMN 1: CTA ── */}
-          <div>
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
             {/* Eyebrow */}
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "1.4rem" }}>
               <span style={{ display: "block", width: "2rem", height: "1px", background: "#79A88B" }} />
@@ -176,7 +171,7 @@ export default function Footer() {
           {/* ── COLUMN 3: Services ── */}
           <div style={{ paddingTop: "0.4rem" }}>
             <p className="font-syne"
-               style={{ fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", color: "#79A88B", margin: "0 0 0.9rem" }}>
+               style={{ fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", color: "#79A88B", margin: "1.5rem 0 0.9rem" }}>
               Our Services
             </p>
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -189,17 +184,11 @@ export default function Footer() {
         </div>
 
         {/* ── DIVIDER ── */}
-        <div style={{ borderTop: "1px solid rgba(0,0,0,0.1)", margin: "0 2.5rem" }} />
+        <div className="border-t border-black/10 mx-6 md:mx-10" />
 
         {/* ── BOTTOM BAR ── */}
-        <div style={{
-          padding: "0.9rem 2.5rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: "0.8rem",
-        }}>
+        <div className="px-6 md:px-10 py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+
 
           {/* Brand */}
           <span className="font-cormorant" style={{ fontSize: "1.5rem", fontWeight: 300, color: "#1a1a1a" }}>
