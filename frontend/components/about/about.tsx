@@ -38,11 +38,11 @@ const T = {
 function AboutHero() {
   return (
     <section
-      className="relative grid min-h-0 grid-cols-1 mt-[-40px] overflow-hidden bg-[#F8F6F1] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:min-h-[92vh]"
+      className="relative grid min-h-0 grid-cols-1 mt-[-32px] overflow-hidden bg-[#F8F6F1] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:min-h-[92vh]"
     >
       {/* LEFT */}
       <div
-        className="order-2 flex flex-col justify-center px-4 pb-12 pt-28 font-bold sm:px-6 sm:pb-14 sm:pt-32 md:px-10 lg:order-1 lg:px-12 lg:pb-24 lg:pt-28 xl:pl-20 xl:pr-12"
+        className="order-2 flex flex-col justify-center px-4 pb-12 pt-16 font-bold sm:px-6 sm:pb-14 sm:pt-20 md:px-10 lg:order-1 lg:px-12 lg:pb-24 lg:pt-16 xl:pl-20 xl:pr-12"
       >
 
         {/* Tag */}
