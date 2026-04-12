@@ -481,7 +481,7 @@ export default function ServicesSection() {
       `}</style>
 
       <section
-        id="machines"
+        id="services"
         className="overflow-hidden relative"
         style={{ background: "#0E0D0A", paddingTop: "5rem", fontFamily: SYNE }}
       >

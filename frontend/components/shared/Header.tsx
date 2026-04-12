@@ -36,11 +36,11 @@ const Header = () => {
 
   const getNavLink = (item: string) => {
     switch (item.toLowerCase()) {
-      case "home": return "/";
+      case "home": return "/#home";
       case "about us": return "/about";
-      case "process": return "/process";
-      case "services": return "/services";
-      case "wide format": return "/wide-format-scanning";
+      case "process": return "/#process";
+      case "services": return "/#services";
+      case "wide format": return "/#wide-format";
       default: return createSlug(item);
     }
   };

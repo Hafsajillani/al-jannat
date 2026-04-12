@@ -114,7 +114,7 @@ export default function WideFormatFeature() {
 
       <section
         ref={sectionRef}
-        id="feature"
+        id="wide-format"
         className="min-h-screen grid grid-cols-1 lg:grid-cols-2 items-stretch"
         style={{ background: "#fff" }}
       >

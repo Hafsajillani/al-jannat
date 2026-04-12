@@ -267,6 +267,7 @@ function SliderSection() {
       `}</style>
 
       <section
+        id="home"
         className="hero-section bg-[#F8F6F1] overflow-hidden relative z-[1]"
         style={{ minHeight: "88vh", marginTop: "-32px" }}
       >

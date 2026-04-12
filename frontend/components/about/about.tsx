@@ -21,15 +21,15 @@ function useInView(threshold = 0.12) {
 
 /* ─── Design tokens ─── */
 const T = {
-  accent:      "#79A88B",
-  accentDark:  "#5a8a6e",
+  accent: "#79A88B",
+  accentDark: "#5a8a6e",
   accentLight: "#edf4f0",
-  ink:         "#0E0D0A",
-  warm:        "#8A8278",
-  border:      "#E2DDD6",
-  muted:       "#EAE6DF",
-  bg:          "#F0EDE8",
-  white:       "#F8F6F1",
+  ink: "#0E0D0A",
+  warm: "#8A8278",
+  border: "#E2DDD6",
+  muted: "#EAE6DF",
+  bg: "#F0EDE8",
+  white: "#F8F6F1",
 };
 
 /* ══════════════════════════════════════════════
@@ -38,7 +38,7 @@ const T = {
 function AboutHero() {
   return (
     <section
-      className="relative grid min-h-0 grid-cols-1 overflow-hidden bg-[#F8F6F1] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:min-h-[92vh]"
+      className="relative grid min-h-0 grid-cols-1 mt-[-40px] overflow-hidden bg-[#F8F6F1] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:min-h-[92vh]"
     >
       {/* LEFT */}
       <div
@@ -70,8 +70,8 @@ function AboutHero() {
           }}
         >
           {[
-            { text: "Trusted",       color: T.ink },
-            { text: "By Lahore's",   color: T.accent },
+            { text: "Trusted", color: T.ink },
+            { text: "By Lahore's", color: T.accent },
             { text: "Professionals", color: T.ink },
           ].map(({ text, color }, i) => (
             <span key={i} style={{ display: "block", overflow: "hidden" }}>
@@ -145,9 +145,9 @@ function AboutHero() {
    HOW WE DELIVER
 ══════════════════════════════════════════════ */
 const steps = [
-  { num: "01", title: "You Send the Files",             body: "Walk in with a USB, email your files, or send them via WhatsApp. We accept PDF, DWG, DXF, TIFF, AI, PSD and all major formats. No file size restrictions for walk-ins." },
-  { num: "02", title: "We Check Everything",            body: "Our team reviews your file for quality, dimensions, colour mode and printability. We catch problems before we print — saving you time and money. You get a confirmed quote within minutes." },
-  { num: "03", title: "Precision Production",           body: "We use professional-grade HP DesignJet plotters and wide-format scanners. Every job is quality-checked before it leaves our studio." },
+  { num: "01", title: "You Send the Files", body: "Walk in with a USB, email your files, or send them via WhatsApp. We accept PDF, DWG, DXF, TIFF, AI, PSD and all major formats. No file size restrictions for walk-ins." },
+  { num: "02", title: "We Check Everything", body: "Our team reviews your file for quality, dimensions, colour mode and printability. We catch problems before we print — saving you time and money. You get a confirmed quote within minutes." },
+  { num: "03", title: "Precision Production", body: "We use professional-grade HP DesignJet plotters and wide-format scanners. Every job is quality-checked before it leaves our studio." },
   { num: "04", title: "Ready for Collection or Delivery", body: "Collect from our studio in Garden Town or receive your scanned files digitally. Same-day service is available for most standard print and scan jobs." },
 ];
 
@@ -159,19 +159,19 @@ function HowWeDeliver() {
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-24">
           {/* LEFT */}
           <div>
-          <div
-          className="opacity-0 font-bold uppercase"
-          style={{
-            display: "flex", alignItems: "center", gap: ".8rem",
-            fontFamily: "'syne', sans-serif", fontSize: ".68rem",
-            letterSpacing: ".4em", color: T.accent,
-            marginBottom: "1.8rem",
-            animation: "fadeUp .8s ease .3s both",
-          }}
-        >
-          <span style={{ display: "inline-block", width: 28, height: 1, background: T.accent }} />
-          How to Deliever
-        </div>
+            <div
+              className="opacity-0 font-bold uppercase"
+              style={{
+                display: "flex", alignItems: "center", gap: ".8rem",
+                fontFamily: "'syne', sans-serif", fontSize: ".68rem",
+                letterSpacing: ".4em", color: T.accent,
+                marginBottom: "1.8rem",
+                animation: "fadeUp .8s ease .3s both",
+              }}
+            >
+              <span style={{ display: "inline-block", width: 28, height: 1, background: T.accent }} />
+              How to Deliever
+            </div>
             <SectionTitle>
               Precision at<br />Every{" "}
               <em style={{ color: T.accent, fontStyle: "italic" }}>Step</em>
@@ -255,52 +255,52 @@ function HowStep({ step, delay, inView, isLast }: { step: typeof steps[0]; delay
 const ClientIcons: Record<string, ReactElement> = {
   engineering: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+      <rect x="2" y="7" width="20" height="14" rx="1" /><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" /><line x1="12" y1="12" x2="12" y2="16" /><line x1="10" y1="14" x2="14" y2="14" />
     </svg>
   ),
   architecture: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 21h18M3 7l9-4 9 4M4 21V7M20 21V7M9 21v-5a3 3 0 0 1 6 0v5"/>
+      <path d="M3 21h18M3 7l9-4 9 4M4 21V7M20 21V7M9 21v-5a3 3 0 0 1 6 0v5" />
     </svg>
   ),
   government: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/>
+      <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3" />
     </svg>
   ),
   university: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/>
+      <path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5" />
     </svg>
   ),
   realestate: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/>
+      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z" /><path d="M9 21V12h6v9" />
     </svg>
   ),
   law: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2L3 7l1.5 9L12 22l7.5-6L21 7z"/><path d="M12 2v20M3 7h18"/>
+      <path d="M12 2L3 7l1.5 9L12 22l7.5-6L21 7z" /><path d="M12 2v20M3 7h18" />
     </svg>
   ),
   creative: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 20c-4 0-8-2-8-6s4-5 8-5 8 1 8 5-4 6-8 6z"/>
+      <circle cx="13.5" cy="6.5" r="2.5" /><circle cx="17.5" cy="10.5" r="2.5" /><circle cx="8.5" cy="7.5" r="2.5" /><circle cx="6.5" cy="12.5" r="2.5" /><path d="M12 20c-4 0-8-2-8-6s4-5 8-5 8 1 8 5-4 6-8 6z" />
     </svg>
   ),
   healthcare: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
     </svg>
   ),
   manufacturing: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 20h20M4 20V10l4-4 4 4V4l4 4v12"/><rect x="10" y="14" width="4" height="6"/>
+      <path d="M2 20h20M4 20V10l4-4 4 4V4l4 4v12" /><rect x="10" y="14" width="4" height="6" />
     </svg>
   ),
   retail: (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" /><line x1="3" y1="6" x2="21" y2="6" /><path d="M16 10a4 4 0 0 1-8 0" />
     </svg>
   ),
 };
@@ -310,12 +310,12 @@ const ClientIcons: Record<string, ReactElement> = {
    TESTIMONIALS
 ══════════════════════════════════════════════ */
 const testimonials = [
-  { stars: 5, quote: "The plotter prints for our architectural plans were flawless — perfectly scaled and delivered the same day. We've been coming here for years and the quality is always consistent.", initials: "AK", name: "Ahmed Khan",    role: "Senior Architect, Lahore",          delay: .05 },
-  { stars: 5, quote: "We had 50+ old maps that needed scanning and digitising. Al Jannat did them in a single day at incredible resolution. Their wide format scanning service is unmatched in the city.", initials: "SF", name: "Sara Farooq",   role: "Project Manager, Engineering Co.",  delay: .15 },
-  { stars: 5, quote: "Fast, professional, and always willing to go the extra mile. I send my files over WhatsApp and my prints are ready within hours. Couldn't ask for better service.",                  initials: "MR", name: "Muhammad Raza", role: "Interior Designer, Lahore",         delay: .25 },
-  { stars: 5, quote: "Our university department relies on Al Jannat for all large format printing. The team is always helpful — especially for technical drawings.",                                        initials: "DR", name: "Dr. Rizwan A.", role: "Professor, Civil Engineering Dept.", delay: .05 },
-  { stars: 5, quote: "Needed 200 copies of a presentation in full colour on short notice. Done perfectly and on time. Their bulk photocopy service is genuinely the best I've experienced in Lahore.",     initials: "HB", name: "Hina Baig",     role: "Marketing Manager",                 delay: .15 },
-  { stars: 5, quote: "Have been a client for over 8 years. The consistency, the speed, the communication — everything is top-notch. Al Jannat is the only place I trust for my project blueprints.",       initials: "ZM", name: "Zubair Malik",  role: "Construction Consultant",           delay: .25 },
+  { stars: 5, quote: "The plotter prints for our architectural plans were flawless — perfectly scaled and delivered the same day. We've been coming here for years and the quality is always consistent.", initials: "AK", name: "Ahmed Khan", role: "Senior Architect, Lahore", delay: .05 },
+  { stars: 5, quote: "We had 50+ old maps that needed scanning and digitising. Al Jannat did them in a single day at incredible resolution. Their wide format scanning service is unmatched in the city.", initials: "SF", name: "Sara Farooq", role: "Project Manager, Engineering Co.", delay: .15 },
+  { stars: 5, quote: "Fast, professional, and always willing to go the extra mile. I send my files over WhatsApp and my prints are ready within hours. Couldn't ask for better service.", initials: "MR", name: "Muhammad Raza", role: "Interior Designer, Lahore", delay: .25 },
+  { stars: 5, quote: "Our university department relies on Al Jannat for all large format printing. The team is always helpful — especially for technical drawings.", initials: "DR", name: "Dr. Rizwan A.", role: "Professor, Civil Engineering Dept.", delay: .05 },
+  { stars: 5, quote: "Needed 200 copies of a presentation in full colour on short notice. Done perfectly and on time. Their bulk photocopy service is genuinely the best I've experienced in Lahore.", initials: "HB", name: "Hina Baig", role: "Marketing Manager", delay: .15 },
+  { stars: 5, quote: "Have been a client for over 8 years. The consistency, the speed, the communication — everything is top-notch. Al Jannat is the only place I trust for my project blueprints.", initials: "ZM", name: "Zubair Malik", role: "Construction Consultant", delay: .25 },
 ];
 
 function Testimonials() {
@@ -324,19 +324,19 @@ function Testimonials() {
     <section style={{ background: T.ink, padding: "clamp(3rem, 8vw, 5rem) 0 clamp(3rem, 8vw, 7rem)" }}>
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6 md:px-10 lg:px-12">
         <div className="mb-10 text-center sm:mb-14 md:mb-16">
-        <div
-          className="opacity-0 font-bold uppercase"
-          style={{
-            display: "flex", alignItems: "center", justifyContent: "center", gap: ".8rem",
-            fontFamily: "'syne', sans-serif", fontSize: ".68rem",
-            letterSpacing: ".4em", color: T.accent,
-            marginBottom: "1.8rem",
-            animation: "fadeUp .8s ease .3s both",
-          }}
-        >
-          <span style={{ display: "inline-block", width: 28, height: 1, background: T.accent }} />
-          Client Reviews
-        </div>
+          <div
+            className="opacity-0 font-bold uppercase"
+            style={{
+              display: "flex", alignItems: "center", justifyContent: "center", gap: ".8rem",
+              fontFamily: "'syne', sans-serif", fontSize: ".68rem",
+              letterSpacing: ".4em", color: T.accent,
+              marginBottom: "1.8rem",
+              animation: "fadeUp .8s ease .3s both",
+            }}
+          >
+            <span style={{ display: "inline-block", width: 28, height: 1, background: T.accent }} />
+            Client Reviews
+          </div>
           <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: "clamp(2rem,4.5vw,3.5rem)", fontWeight: 300, color: T.white, lineHeight: 1.05 }}>
             What Our<br />
             <em style={{ color: T.accent, fontStyle: "italic" }}>Clients Say</em>
@@ -396,19 +396,19 @@ function MapSection() {
     <section style={{ background: T.white, padding: "clamp(3rem, 8vw, 5rem) 0 clamp(3rem, 8vw, 7rem)" }}>
       <div className="mx-auto max-w-[1280px] px-4 sm:px-6 md:px-10 lg:px-12">
         <div className="mb-10 text-center sm:mb-14 md:mb-16">
-        <div
-          className="opacity-0 font-bold uppercase"
-          style={{
-            display: "flex", alignItems: "center", justifyContent: "center", gap: ".8rem",
-            fontFamily: "'syne', sans-serif", fontSize: ".68rem",
-            letterSpacing: ".4em", color: T.accent,
-            marginBottom: "1.8rem",
-            animation: "fadeUp .8s ease .3s both",
-          }}
-        >
-          <span style={{ display: "inline-block", width: 28, height: 1, background: T.accent }} />
-          Find Us
-        </div>
+          <div
+            className="opacity-0 font-bold uppercase"
+            style={{
+              display: "flex", alignItems: "center", justifyContent: "center", gap: ".8rem",
+              fontFamily: "'syne', sans-serif", fontSize: ".68rem",
+              letterSpacing: ".4em", color: T.accent,
+              marginBottom: "1.8rem",
+              animation: "fadeUp .8s ease .3s both",
+            }}
+          >
+            <span style={{ display: "inline-block", width: 28, height: 1, background: T.accent }} />
+            Find Us
+          </div>
           <SectionTitle center>
             Visit Our{" "}
             <em style={{ color: T.accent, fontStyle: "italic" }}>Studio</em>
@@ -422,11 +422,11 @@ function MapSection() {
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-20">
           {/* Info */}
           <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-          {[
+            {[
               {
                 icon: (
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" />
                   </svg>
                 ),
                 title: "Studio Address", body: "Central Plaza Road, Commercial Area\nGarden Town, Lahore, Pakistan",
@@ -434,7 +434,7 @@ function MapSection() {
               {
                 icon: (
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16z"/>
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.5 16z" />
                   </svg>
                 ),
                 title: "WhatsApp / Call", link: { href: "https://wa.me/923214577000", label: "+92 321 4577000" },
@@ -442,7 +442,7 @@ function MapSection() {
               {
                 icon: (
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />
                   </svg>
                 ),
                 title: "Email", link: { href: "mailto:scanprint47@gmail.com", label: "scanprint47@gmail.com" },
@@ -450,7 +450,7 @@ function MapSection() {
               {
                 icon: (
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
                   </svg>
                 ),
                 title: "Opening Hours", body: "Mon – Sat: 9:00 AM – 9:00 PM\nSunday: 10:00 AM – 6:00 PM",
