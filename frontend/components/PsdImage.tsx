@@ -7,9 +7,10 @@ interface PsdImageProps {
   src: string;
   alt?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-export default function PsdImage({ src, alt = "", className = "" }: PsdImageProps) {
+export default function PsdImage({ src, alt = "", className = "", style }: PsdImageProps) {
   const [dataUrl, setDataUrl] = useState<string | null>(null);
   const [error, setError] = useState(false);
 
@@ -50,12 +51,12 @@ export default function PsdImage({ src, alt = "", className = "" }: PsdImageProp
 
   // Fallback to natively supported image if it's not a PSD
   if (!src.toLowerCase().endsWith(".psd")) {
-    return <img src={src} alt={alt} className={className} draggable={false} />;
+    return <img src={src} alt={alt} className={className} style={style} draggable={false} />;
   }
 
   if (error) {
     return (
-      <div className={`flex items-center justify-center bg-red-50 text-red-500 text-xs p-4 ${className}`}>
+      <div className={`flex items-center justify-center bg-red-50 text-red-500 text-xs p-4 ${className}`} style={style}>
         Failed to load PSD
       </div>
     );
@@ -63,9 +64,9 @@ export default function PsdImage({ src, alt = "", className = "" }: PsdImageProp
 
   if (!dataUrl) {
     return (
-      <div className={`animate-pulse bg-gray-200 ${className}`} />
+      <div className={`animate-pulse bg-gray-200 ${className}`} style={style} />
     );
   }
 
-  return <img src={dataUrl} alt={alt} className={className} draggable={false} />;
+  return <img src={dataUrl} alt={alt} className={className} style={style} draggable={false} />;
 }
