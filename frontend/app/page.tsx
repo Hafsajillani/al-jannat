@@ -1,22 +1,23 @@
+import Collaborations from "@/components/Collabrations";
+import Contact from "@/components/ContactInfo";
+import HeroPage from "@/components/Hero";
+import ServicesSection from "@/components/Services";
+import Header from "@/components/shared/Header";
+import Stats from "@/components/Stats";
+import WideFormatFeature from "@/components/Wide";
+import ProcessAndCTA from "@/components/Work";
 import Image from "next/image";
-import Hero from "@/components/Hero";
-import DesignChoice from "@/components/design";
-import ChatBot from "@/components/ChatBox";
-import CategorySection from "@/components/Categories";
-import BasicSection from "@/components/Basics";
-import PrintsSection from "@/components/Prints";
-import SignsBannerSection from "@/components/Signs";
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <CategorySection />
-      <BasicSection/>      
-      <ChatBot />
-      <PrintsSection/>
-      <SignsBannerSection />
-      <DesignChoice />
+    <HeroPage/>
+    <Collaborations/>
+    <ServicesSection/>
+    <WideFormatFeature/>
+    <Stats/>
+    <ProcessAndCTA/>
+    <Contact/>
     </>
   );
 }
