@@ -68,7 +68,7 @@ const Header = () => {
             </div>
 
             <span
-              style={{ fontSize: '9px', letterSpacing: '0.7em', color: '#000' }}
+              style={{ fontSize: '10px', letterSpacing: '0.59em', color: '#000' }}
               className="inline-block font-bold uppercase mt-4 pl-0"
             >
               SCAN N PRINT

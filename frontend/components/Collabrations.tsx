@@ -8,7 +8,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 const collabImages = [
-  { id: 1, src: "/images/bop.webp",             alt: "Bank of Punjab" },
+  { id: 1, src: "/images/bop-logo.png",          alt: "Bank of Punjab" },
   { id: 2, src: "/images/logo-descon.jpg",       alt: "Descon Engineering" },
   { id: 3, src: "/images/nes-pack.jpg",          alt: "Nes Pack" },
   { id: 4, src: "/images/barclays-logo.png",     alt: "Barclays" },

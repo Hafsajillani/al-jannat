@@ -100,14 +100,14 @@ export default function Footer() {
             <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "1.4rem" }}>
               <span style={{ display: "block", width: "2rem", height: "1px", background: "#79A88B" }} />
               <span className="font-syne"
-                    style={{ fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", color: "#79A88B" }}>
+                style={{ fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", color: "#79A88B" }}>
                 Garden Town · Lahore
               </span>
             </div>
 
             {/* Headline */}
             <h2 className="font-cormorant"
-                style={{ fontWeight: 300, fontSize: "clamp(2rem, 4vw, 3.4rem)", lineHeight: 1.05, color: "#1a1a1a", margin: "0 0 1.6rem" }}>
+              style={{ fontWeight: 300, fontSize: "clamp(2rem, 4vw, 3.4rem)", lineHeight: 1.05, color: "#1a1a1a", margin: "0 0 1.6rem" }}>
               Ready to{" "}
               <em style={{ fontStyle: "italic", color: "#79A88B" }}>Print?</em>
               <br />Let's Get Started.
@@ -115,7 +115,7 @@ export default function Footer() {
 
             {/* Sub-line */}
             <p className="font-syne"
-               style={{ fontSize: "0.82rem", fontWeight: 400, color: "rgba(0,0,0,0.45)", letterSpacing: "0.03em", maxWidth: "310px", lineHeight: 1.9, margin: "0 0 1.8rem" }}>
+              style={{ fontSize: "0.82rem", fontWeight: 400, color: "rgba(0,0,0,0.45)", letterSpacing: "0.03em", maxWidth: "310px", lineHeight: 1.9, margin: "0 0 1.8rem" }}>
               Send your files and get a precise quote — usually within minutes.
             </p>
           </div>
@@ -123,7 +123,7 @@ export default function Footer() {
           {/* ── COLUMN 2: Contact Info ── */}
           <div style={{ paddingTop: "0.4rem" }}>
             <p className="font-syne"
-               style={{ fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", color: "#79A88B", margin: "0 0 1rem" }}>
+              style={{ fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", color: "#79A88B", margin: "0 0 1rem" }}>
               Contact & Location
             </p>
 
@@ -131,8 +131,8 @@ export default function Footer() {
             <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "14px" }}>
               <div className="info-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#79A88B" strokeWidth="2" style={{ width: 13, height: 13 }}>
-                  <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  <circle cx="12" cy="11" r="3"/>
+                  <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <circle cx="12" cy="11" r="3" />
                 </svg>
               </div>
               <div>
@@ -145,7 +145,7 @@ export default function Footer() {
             <div style={{ display: "flex", alignItems: "flex-start", gap: "10px", marginBottom: "14px" }}>
               <div className="info-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#79A88B" strokeWidth="2" style={{ width: 13, height: 13 }}>
-                  <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
               <div>
@@ -158,7 +158,7 @@ export default function Footer() {
             <div style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
               <div className="info-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#79A88B" strokeWidth="2" style={{ width: 13, height: 13 }}>
-                  <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
@@ -171,7 +171,7 @@ export default function Footer() {
           {/* ── COLUMN 3: Services ── */}
           <div style={{ paddingTop: "0.4rem" }}>
             <p className="font-syne"
-               style={{ fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", color: "#79A88B", margin: "1.5rem 0 0.9rem" }}>
+              style={{ fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", color: "#79A88B", margin: "1.5rem 0 0.9rem" }}>
               Our Services
             </p>
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -187,24 +187,56 @@ export default function Footer() {
         <div className="border-t border-black/10 mx-6 md:mx-10" />
 
         {/* ── BOTTOM BAR ── */}
-        <div className="px-6 md:px-10 py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="px-6 md:px-10 py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-5">
 
-
-          {/* Brand */}
-          <span className="font-cormorant" style={{ fontSize: "1.5rem", fontWeight: 300, color: "#1a1a1a" }}>
-            <em>Al</em>
-            <em style={{ fontStyle: "italic", color: "#79A88B", fontWeight: 400 }}> Jannat</em>
-          </span>
+          {/* Brand — same as header */}
+          <div className="flex flex-col -space-y-3">
+            <div className="flex items-baseline gap-2">
+              <span
+                className="font-cormorant"
+                style={{ fontSize: "1.9rem", fontWeight: 600, fontStyle: "italic", lineHeight: 1, letterSpacing: "-0.02em" }}
+              >
+                <span style={{ color: "#000" }}>Al </span>
+                <span style={{ color: "#79A88B" }}>Jannat</span>
+              </span>
+              <span style={{ height: 4, width: 4, backgroundColor: "#000", borderRadius: "50%", display: "inline-block" }} />
+            </div>
+            <span
+              className="font-syne"
+              style={{ fontSize: "6x", letterSpacing: "0.5em", color: "#000", fontWeight: 700, textTransform: "uppercase", paddingTop: "10px" }}
+            >
+              SCAN N PRINT
+            </span>
+          </div>
 
           {/* Tagline */}
           <span className="font-syne"
-                style={{ fontSize: "0.62rem", color: "rgba(0,0,0,0.32)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+            style={{ fontSize: "0.62rem", color: "rgba(0,0,0,0.32)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
             Printing · Scanning · Lahore
           </span>
 
           {/* Copyright */}
-          <p className="font-syne" style={{ fontSize: "0.63rem", color: "rgba(0,0,0,0.28)", margin: 0, whiteSpace: "nowrap" }}>
-            © {new Date().getFullYear()} Scan n Print
+          <p className="font-syne" style={{ fontSize: "0.82rem", color: "rgba(0,0,0,0.28)", margin: 0 }}>
+            © {new Date().getFullYear()} Designed &amp; Built by{" "}
+            <a
+              href="https://www.linkedin.com/in/hafsa-jillani-26257523b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-cormorant"
+              style={{
+                fontSize: "1rem",
+                fontWeight: 600,
+                fontStyle: "italic",
+                color: "#000000ff",
+                textDecoration: "none",
+                borderBottom: "1px solid transparent",
+                transition: "border-color 0.3s",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "#79A88B"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "transparent"; }}
+            >
+              Hafsa Jillani
+            </a>
           </p>
         </div>
 

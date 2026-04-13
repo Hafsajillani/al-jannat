@@ -327,7 +327,7 @@ export default function ServicesSection() {
   }, []);
 
   const applyOffset = useCallback(
-    (raw: number) => {
+    (raw: number): void => {
       const offset = Math.max(0, Math.min(raw, getMaxScroll()));
       currentOffset.current = offset;
       if (trackRef.current)
@@ -358,11 +358,11 @@ export default function ServicesSection() {
 
   // ── Auto-scroll loop ─────────────────────────────────────────────────────────
   useEffect(() => {
-    const tick = () => {
+    const tick = (): void => {
       if (!isPaused.current) {
         const max = getMaxScroll();
         const next = currentOffset.current + AUTO_SPEED;
-        // Seamlessly loop back to start when reaching the end
+        // After last card, start from the beginning
         applyOffset(next > max ? 0 : next);
       }
       autoScrollRef.current = requestAnimationFrame(tick);
@@ -379,14 +379,14 @@ export default function ServicesSection() {
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
 
-    const onMouseMove = (e: MouseEvent) => {
+    const onMouseMove = (e: MouseEvent): void => {
       if (!isDragging.current) return;
       velocity.current = e.pageX - lastX.current;
       lastX.current = e.pageX;
       applyOffset(anchorOffset.current - (e.pageX - startX.current));
     };
 
-    const onMouseUp = () => {
+    const onMouseUp = (): void => {
       if (!isDragging.current) return;
       isDragging.current = false;
       wrapper.style.cursor = "grab";
@@ -394,7 +394,7 @@ export default function ServicesSection() {
       rafId.current = requestAnimationFrame(runInertia);
     };
 
-    const onTouchStart = (e: TouchEvent) => {
+    const onTouchStart = (e: TouchEvent): void => {
       if (rafId.current) cancelAnimationFrame(rafId.current);
       isPaused.current = true;
       startX.current = e.touches[0].pageX;
@@ -403,33 +403,23 @@ export default function ServicesSection() {
       velocity.current = 0;
     };
 
-    const onTouchMove = (e: TouchEvent) => {
+    const onTouchMove = (e: TouchEvent): void => {
       velocity.current = e.touches[0].pageX - lastX.current;
       lastX.current = e.touches[0].pageX;
       applyOffset(anchorOffset.current - (e.touches[0].pageX - startX.current));
     };
 
-    const onTouchEnd = () => {
+    const onTouchEnd = (): void => {
       // Let inertia run; isPaused resumes after inertia settles
       rafId.current = requestAnimationFrame(runInertia);
     };
 
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      if (rafId.current) cancelAnimationFrame(rafId.current);
-      isPaused.current = true;
-      applyOffset(currentOffset.current + e.deltaY * 1.2);
-      // Resume auto-scroll after 1.5s of wheel inactivity
-      clearTimeout((onWheel as any)._t);
-      (onWheel as any)._t = setTimeout(() => { isPaused.current = false; }, 1500);
-    };
 
     document.addEventListener("mousemove", onMouseMove);
     document.addEventListener("mouseup", onMouseUp);
     wrapper.addEventListener("touchstart", onTouchStart, { passive: true });
     wrapper.addEventListener("touchmove", onTouchMove, { passive: true });
     wrapper.addEventListener("touchend", onTouchEnd);
-    wrapper.addEventListener("wheel", onWheel, { passive: false });
 
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
@@ -437,7 +427,6 @@ export default function ServicesSection() {
       wrapper.removeEventListener("touchstart", onTouchStart);
       wrapper.removeEventListener("touchmove", onTouchMove);
       wrapper.removeEventListener("touchend", onTouchEnd);
-      wrapper.removeEventListener("wheel", onWheel);
     };
   }, [applyOffset, runInertia]);
 

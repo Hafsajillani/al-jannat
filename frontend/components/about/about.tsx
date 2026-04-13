@@ -305,6 +305,124 @@ const ClientIcons: Record<string, ReactElement> = {
   ),
 };
 
+/* ── Collaboration logos ── */
+const COLLAB_LOGOS = [
+  { id: 1, src: "/images/bop-logo.png",        alt: "Bank of Punjab" },
+  { id: 2, src: "/images/logo-descon.jpg",     alt: "Descon Engineering" },
+  { id: 3, src: "/images/nes-pack.jpg",        alt: "Nes Pack" },
+  { id: 4, src: "/images/barclays-logo.png",   alt: "Barclays" },
+  { id: 5, src: "/images/silk-bank.jpg",       alt: "Silk Bank" },
+  { id: 6, src: "/images/UBL-Logo-Vector.png", alt: "UBL" },
+];
+
+function CompaniesSection() {
+  const { ref, inView } = useInView();
+  return (
+    <section style={{ background: "#ffffff", padding: "clamp(3rem, 8vw, 5rem) 0" }}>
+      <div className="mx-auto max-w-[1280px] px-4 sm:px-6 md:px-10 lg:px-12 flex flex-col items-center">
+        {/* Eyebrow */}
+        <div
+          style={{
+            display: "flex", alignItems: "center", gap: ".8rem",
+            fontFamily: "'syne', sans-serif", fontSize: ".68rem",
+            fontWeight: 700, letterSpacing: ".4em", color: T.accent,
+            textTransform: "uppercase" as const,
+            marginBottom: "1.8rem",
+            opacity: inView ? 1 : 0,
+            transform: inView ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1)",
+          }}
+        >
+          <span style={{ display: "inline-block", width: 28, height: 1, background: T.accent }} />
+          Trusted Partners
+        </div>
+
+        {/* Heading */}
+        <h2
+          style={{
+            fontFamily: "'Cormorant Garamond',serif",
+            fontSize: "clamp(2rem,4.5vw,3.5rem)",
+            fontWeight: 300, color: T.ink, lineHeight: 1.05,
+            textAlign: "center",
+            marginBottom: "1.2rem",
+            opacity: inView ? 1 : 0,
+            transform: inView ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity .7s cubic-bezier(.16,1,.3,1) .05s, transform .7s cubic-bezier(.16,1,.3,1) .05s",
+          }}
+        >
+          Companies We{" "}
+          <em style={{ color: T.accent, fontStyle: "italic" }}>Worked With</em>
+        </h2>
+
+        {/* Body */}
+        <p
+          className="mx-auto max-w-[min(100%,440px)]"
+          style={{
+            fontFamily: "'Syne', sans-serif", fontSize: ".92rem",
+            color: T.warm, lineHeight: 1.85, fontWeight: 300,
+            textAlign: "center", marginBottom: "3.5rem",
+            opacity: inView ? 1 : 0,
+            transform: inView ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity .7s cubic-bezier(.16,1,.3,1) .1s, transform .7s cubic-bezier(.16,1,.3,1) .1s",
+          }}
+        >
+          Al Jannat Scan &amp; Print is providing satisfactory printer maintenance
+          services all over Pakistan. The performance and trouble shooting time
+          is very good.
+        </p>
+
+        {/* Logo grid */}
+        <div
+          ref={ref}
+          className="w-full max-w-3xl grid grid-cols-2 sm:grid-cols-3 gap-x-12 gap-y-10"
+        >
+          {COLLAB_LOGOS.map((logo, i) => (
+            <div
+              key={logo.id}
+              className="relative w-full h-20 flex items-center justify-center"
+              style={{
+                opacity: inView ? 1 : 0,
+                transform: inView ? "translateY(0)" : "translateY(24px)",
+                transition: `opacity .6s cubic-bezier(.16,1,.3,1) ${0.12 + i * 0.08}s, transform .6s cubic-bezier(.16,1,.3,1) ${0.12 + i * 0.08}s`,
+              }}
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                draggable={false}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Footer tag */}
+        <div
+          style={{
+            display: "flex", alignItems: "center", gap: ".8rem",
+            marginTop: "3.5rem",
+            opacity: inView ? 1 : 0,
+            transition: "opacity .7s cubic-bezier(.16,1,.3,1) .5s",
+          }}
+        >
+          <span style={{ display: "inline-block", width: 24, height: 1, background: T.border }} />
+          <span style={{
+            fontFamily: "'syne',sans-serif", fontSize: ".58rem",
+            letterSpacing: ".18em", textTransform: "uppercase" as const,
+            color: T.warm,
+          }}>
+            Serving across Pakistan
+          </span>
+          <span style={{ display: "inline-block", width: 24, height: 1, background: T.border }} />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ══════════════════════════════════════════════
    TESTIMONIALS
@@ -594,6 +712,7 @@ export default function AboutPage() {
       <main style={{ background: T.white }}>
         <AboutHero />
         <HowWeDeliver />
+        <CompaniesSection />
         <Testimonials />
         <MapSection />
       </main>

@@ -1,4 +1,3 @@
-import Collaborations from "@/components/Collabrations";
 import Contact from "@/components/ContactInfo";
 import HeroPage from "@/components/Hero";
 import ServicesSection from "@/components/Services";
@@ -11,13 +10,12 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-    <HeroPage/>
-    <Collaborations/>
-    <ServicesSection/>
-    <WideFormatFeature/>
-    <Stats/>
-    <ProcessAndCTA/>
-    <Contact/>
+      <HeroPage />
+      <ServicesSection />
+      <WideFormatFeature />
+      <Stats />
+      <ProcessAndCTA />
+      <Contact />
     </>
   );
 }

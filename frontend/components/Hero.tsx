@@ -38,7 +38,7 @@ function MarqueeTicker() {
         {[...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
           <div key={i} className="flex items-center gap-10 shrink-0">
             <div className="w-5 h-[1px] bg-[#79A88B]" />
-            <span style={{ fontSize: "10px", letterSpacing: "0.22em", fontWeight: 700, color: "#8a867d", textTransform: "uppercase" as const }}>{item}</span>
+            <span style={{ fontSize: "10px", letterSpacing: "0.22em", fontWeight: 700, color: "#000000ff", textTransform: "uppercase" as const }}>{item}</span>
           </div>
         ))}
       </div>
@@ -48,7 +48,7 @@ function MarqueeTicker() {
 
 const slides = [
   {
-    image: "/images/cat-1.psd",
+    image: "/images/plotter-printing.png",
     tag: "HP DESIGN JET",
     headingBlack: "HP Design",
     headingGreen: "Jet",
@@ -57,7 +57,7 @@ const slides = [
     btn2: { text: "WHATSAPP US", href: "https://wa.me/923214577000", isWhatsApp: true },
   },
   {
-    image: "/images/cat-3.png",
+    image: "/images/wide.png",
     tag: "WIDE FORMAT SCANNING",
     headingBlack: "Wide Format",
     headingGreen: "Scanning",
@@ -66,7 +66,7 @@ const slides = [
     btn2: { text: "LEARN MORE", href: "/services" },
   },
   {
-    image: "/images/cat-2.png",
+    image: "/images/photocopy.png",
     tag: "DIGITAL COLOR PRINTING",
     headingBlack: "Digital",
     headingGreen: "Printing",
@@ -75,7 +75,7 @@ const slides = [
     btn2: { text: "SEE ALL MACHINES", href: "/machines" },
   },
   {
-    image: "/images/cat-4.png",
+    image: "/images/digital-print.png",
     tag: "HIGH SPEED PHOTOCOPY",
     headingBlack: "Photocopy",
     headingGreen: "Services",
@@ -89,7 +89,7 @@ function SliderSection() {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [visible, setVisible] = useState(false);
-  const DURATION = 5000;
+  const DURATION = 3000;
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 60);
@@ -102,9 +102,11 @@ function SliderSection() {
     setVisible(false);
     setTimeout(() => {
       setCurrent(idx);
-      setVisible(true);
-      setAnimating(false);
-    }, 350);
+      requestAnimationFrame(() => {
+        setVisible(true);
+        setAnimating(false);
+      });
+    }, 420);
   }, [animating]);
 
   useEffect(() => {
@@ -114,10 +116,14 @@ function SliderSection() {
 
   const slide = slides[current];
 
+  // Fade IN: stagger each element with its delay for a nice cascade effect.
+  // Fade OUT: no delay so all elements disappear together before content swaps.
   const fu = (delay = 0): React.CSSProperties => ({
     opacity: visible ? 1 : 0,
     transform: visible ? "translateY(0)" : "translateY(14px)",
-    transition: `opacity 0.4s ease ${delay}ms, transform 0.4s ease ${delay}ms`,
+    transition: visible
+      ? `opacity 0.4s ease ${delay}ms, transform 0.4s ease ${delay}ms`
+      : `opacity 0.25s ease 0ms, transform 0.25s ease 0ms`,
   });
 
   return (
@@ -186,6 +192,11 @@ function SliderSection() {
             margin-bottom: 14px !important;
           }
 
+          .hero-tagline {
+            font-size: 15px !important;
+            margin-bottom: 10px !important;
+          }
+
           /* ── Buttons: side by side on mobile ── */
           .hero-buttons {
             flex-direction: row !important;
@@ -231,6 +242,10 @@ function SliderSection() {
 
           .hero-machine-wrap * {
             max-height: 52vw !important;
+          }
+
+          .hero-machine-photocopy {
+            margin-top: 24px !important;
           }
 
           .hero-watermark {
@@ -315,6 +330,25 @@ function SliderSection() {
               <br />
               <span style={{ color: "#79A88B" }}>{slide.headingGreen}</span>
             </h1>
+
+            {/* Tagline */}
+            <p
+              className={`${cormorant.className} hero-tagline`}
+              style={{
+                fontSize: "clamp(16px, 1.6vw, 20px)",
+                fontStyle: "italic",
+                fontWeight: 500,
+                color: "#79A88B",
+                letterSpacing: "0.02em",
+                lineHeight: 1.4,
+                paddingLeft: "14px",
+                borderLeft: "2px solid rgba(121,168,139,0.4)",
+                marginBottom: "14px",
+                ...fu(80),
+              }}
+            >
+              We <span style={{ color: "#1a1a1a" }}>scan</span> your image &amp; print your <span style={{ color: "#1a1a1a" }}>imaginations</span>
+            </p>
 
             {/* Body */}
             <p
@@ -417,7 +451,7 @@ function SliderSection() {
                 top: "80px",
                 left: "24px",
                 fontSize: "clamp(80px, 9vw, 130px)",
-                fontWeight: 400,
+                fontWeight: 600,
                 lineHeight: 1,
                 color: "rgba(26,26,26,0.07)",
                 userSelect: "none",
@@ -430,30 +464,45 @@ function SliderSection() {
               0{current + 1}
             </div>
 
-            {/* Machine image */}
+            {/* Machine images — all stacked, only current visible */}
             <div
               className="hero-machine-wrap"
               style={{
-                width: "70%",
-                maxHeight: "50vh",
+                width: "90%",
+                maxHeight: "65vh",
                 position: "relative",
                 zIndex: 10,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
                 padding: "60px 48px 10px 30px",
                 ...fu(80),
               }}
             >
-              <PsdImage
-                src={slide.image}
-                alt={slide.headingBlack}
-                className="w-full h-auto object-contain"
-                style={{
-                  maxHeight: "50vh",
-                  filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.12))",
-                }}
-              />
+              {slides.map((s, i) => (
+                <div
+                  key={i}
+                  className={s.image === "/images/photocopy.png" ? "hero-machine-photocopy" : ""}
+                  style={{
+                    position: i === 0 ? "relative" : "absolute",
+                    inset: i === 0 ? undefined : 0,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: i === 0 ? undefined : "60px 48px 10px 30px",
+                    opacity: i === current ? 1 : 0,
+                    transition: "opacity 0.25s ease",
+                    pointerEvents: i === current ? "auto" : "none",
+                  }}
+                >
+                  <PsdImage
+                    src={s.image}
+                    alt={s.headingBlack}
+                    className="w-full h-auto object-contain"
+                    style={{
+                      maxHeight: "65vh",
+                      filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.12))",
+                    }}
+                  />
+                </div>
+              ))}
             </div>
 
             {/* Mobile slide dots */}
@@ -462,13 +511,7 @@ function SliderSection() {
                 <button
                   key={i}
                   className={`hero-dot${i === current ? " active" : ""}`}
-                  aria-label={`Go to slide ${i + 1}`}
-                  onClick={() => {
-                    if (!animating) {
-                      setVisible(false);
-                      setTimeout(() => { setCurrent(i); setVisible(true); }, 350);
-                    }
-                  }}
+                  onClick={() => goTo(i)}
                 />
               ))}
             </div>
