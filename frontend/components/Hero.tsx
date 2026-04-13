@@ -66,7 +66,7 @@ const slides = [
     btn2: { text: "LEARN MORE", href: "/services" },
   },
   {
-    image: "/images/photocopy.png",
+    image: "/images/Photocopy.png",
     tag: "DIGITAL COLOR PRINTING",
     headingBlack: "Digital",
     headingGreen: "Printing",
