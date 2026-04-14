@@ -259,9 +259,20 @@ function SliderSection() {
           .hero-dots { display: flex !important; }
         }
           /* ── Slides 2–4: scale up images on mobile ── */
-.hero-machine-secondary {
-  transform: scale(1.5) !important;
-  transform-origin: center center !important;
+/* ── Slides 2–4: scale up images on MOBILE only ── */
+@media (max-width: 767px) {
+  .hero-machine-secondary {
+    transform: scale(1.5) !important;
+    transform-origin: center center !important;
+    padding: 0 !important;
+  }
+}
+
+/* ── Desktop: slides 2–4 reset ── */
+@media (min-width: 768px) {
+  .hero-machine-secondary {
+    transform: none !important;
+  }
 }
 
         /* Dots — hidden on desktop */
