@@ -203,7 +203,7 @@ export default function Footer() {
             </div>
             <span
               className="font-syne"
-              style={{ fontSize: "6x", letterSpacing: "0.5em", color: "#000", fontWeight: 700, textTransform: "uppercase", paddingTop: "10px" }}
+              style={{ fontSize: "10px", letterSpacing: "0.52em", color: "#000", fontWeight: 700, textTransform: "uppercase", paddingTop: "10px" }}
             >
               SCAN N PRINT
             </span>

@@ -315,6 +315,15 @@ export default function WideFormatFeature() {
             width: 100% !important;
           }
           .wide-btn-primary,
+.wide-btn-outline {
+  flex: 1 !important;
+  min-width: 0 !important;
+  padding: 13px 6px !important;
+  font-size: 8.5px !important;
+  letter-spacing: 0.08em !important;
+  white-space: nowrap !important;
+  border-radius: 7px !important;
+}
           .wide-btn-outline {
             flex: 1 !important;
             min-width: 0 !important;
@@ -341,70 +350,70 @@ export default function WideFormatFeature() {
         .wide-heading-br { display: none; }
       `}</style>
       <section id="wide-format" style={{ background: BG, padding: "clamp(3rem, 8vw, 5.5rem) 0" }}>
-      <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-10 lg:px-12">
+        <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-10 lg:px-12">
 
-        {/* Section header */}
-        <div
-          ref={ref}
-          className="text-center mb-12 sm:mb-16"
-          style={{
-            opacity: inView ? 1 : 0,
-            transform: inView ? "translateY(0)" : "translateY(28px)",
-            transition: "opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1)",
-          }}
-        >
+          {/* Section header */}
           <div
-            className="flex items-center justify-center gap-3 mb-5"
+            ref={ref}
+            className="text-center mb-12 sm:mb-16"
             style={{
-              fontFamily: SYNE,
-              fontSize: "0.65rem",
-              fontWeight: 700,
-              letterSpacing: "0.38em",
-              textTransform: "uppercase",
-              color: A,
+              opacity: inView ? 1 : 0,
+              transform: inView ? "translateY(0)" : "translateY(28px)",
+              transition: "opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1)",
             }}
           >
-            <span style={{ display: "inline-block", width: 28, height: 1, background: A }} />
-            Flagship Equipment
-            <span style={{ display: "inline-block", width: 28, height: 1, background: A }} />
+            <div
+              className="flex items-center justify-center gap-3 mb-5"
+              style={{
+                fontFamily: SYNE,
+                fontSize: "0.65rem",
+                fontWeight: 700,
+                letterSpacing: "0.38em",
+                textTransform: "uppercase",
+                color: A,
+              }}
+            >
+              <span style={{ display: "inline-block", width: 28, height: 1, background: A }} />
+              Flagship Equipment
+              <span style={{ display: "inline-block", width: 28, height: 1, background: A }} />
+            </div>
+            <h2
+              style={{
+                fontFamily: CORMORANT,
+                fontSize: "clamp(2rem, 4.5vw, 3.6rem)",
+                fontWeight: 300,
+                lineHeight: 1.05,
+                color: INK,
+                marginBottom: ".8rem",
+              }}
+            >
+              Scan &amp; Plot with<br className="wide-heading-br" />{" "}
+              <em style={{ color: A, fontStyle: "italic" }}>Precision</em>
+            </h2>
+            <p
+              className="mx-auto"
+              style={{
+                fontFamily: SYNE,
+                fontSize: "0.9rem",
+                fontWeight: 300,
+                lineHeight: 1.85,
+                color: WARM,
+                maxWidth: 460,
+              }}
+            >
+              Two flagship machines powering our wide-format studio — built for
+              speed, accuracy and professional-grade results.
+            </p>
           </div>
-          <h2
-            style={{
-              fontFamily: CORMORANT,
-              fontSize: "clamp(2rem, 4.5vw, 3.6rem)",
-              fontWeight: 300,
-              lineHeight: 1.05,
-              color: INK,
-              marginBottom: ".8rem",
-            }}
-          >
-            Scan &amp; Plot with<br className="wide-heading-br" />{" "}
-            <em style={{ color: A, fontStyle: "italic" }}>Precision</em>
-          </h2>
-          <p
-            className="mx-auto"
-            style={{
-              fontFamily: SYNE,
-              fontSize: "0.9rem",
-              fontWeight: 300,
-              lineHeight: 1.85,
-              color: WARM,
-              maxWidth: 460,
-            }}
-          >
-            Two flagship machines powering our wide-format studio — built for
-            speed, accuracy and professional-grade results.
-          </p>
-        </div>
 
-        {/* Service panels */}
-        <div className="flex flex-col gap-6">
-          {services.map((s, i) => (
-            <ServiceFeature key={i} s={s} index={i} />
-          ))}
-        </div>
+          {/* Service panels */}
+          <div className="flex flex-col gap-6">
+            {services.map((s, i) => (
+              <ServiceFeature key={i} s={s} index={i} />
+            ))}
+          </div>
 
-      </div>
+        </div>
       </section>
     </>
   );

@@ -96,6 +96,16 @@ export default function ProcessAndCTA() {
           pointer-events: none;
           letter-spacing: -.05em;
         }
+          @media (max-width: 767px) {
+  #cta-band .flex.flex-wrap {
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+  #cta-band .flex.flex-wrap a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
       `}</style>
 
       {/* ── PROCESS ── */}

@@ -217,35 +217,37 @@ function SliderSection() {
           }
 
           /* ── 2. Image box (below content, seamless) ── */
-          .hero-right {
-            order: 2 !important;
-            width: 100% !important;
-            height: 68vw !important;
-            min-height: 240px !important;
-            max-height: 340px !important;
-            border-right: none !important;
-            border-top: none !important;
-            background: transparent !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            position: relative !important;
-            overflow: hidden !important;
-            padding-bottom: 28px !important;
-            z-index: 1 !important;
-          }
+          /* ── 2. Image box (below content, seamless) ── */
+.hero-right {
+  order: 2 !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 320px !important;
+  max-height: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  overflow: visible !important;
+  padding: 0px 24px 50px !important;
+  z-index: 1 !important;
+}
 
-          .hero-machine-wrap {
-            width: 82% !important;
-            padding: 0 20px !important;
-          }
-
-          .hero-machine-wrap * {
-            max-height: 52vw !important;
-          }
+.hero-machine-wrap {
+  width: 92% !important;
+  padding: 0 !important;
+  max-height: none !important;
+  min-height: 260px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
 
           .hero-machine-photocopy {
-            margin-top: 24px !important;
+            margin-top: 20px !important;
           }
 
           .hero-watermark {
@@ -256,6 +258,11 @@ function SliderSection() {
 
           .hero-dots { display: flex !important; }
         }
+          /* ── Slides 2–4: scale up images on mobile ── */
+.hero-machine-secondary {
+  transform: scale(1.5) !important;
+  transform-origin: center center !important;
+}
 
         /* Dots — hidden on desktop */
         .hero-dots {
@@ -479,7 +486,10 @@ function SliderSection() {
               {slides.map((s, i) => (
                 <div
                   key={i}
-                  className={s.image === "/images/photocopy.png" ? "hero-machine-photocopy" : ""}
+                  className={[
+                    s.image === "/images/photocopy.png" ? "hero-machine-photocopy" : "",
+                    i > 0 ? "hero-machine-secondary" : "",
+                  ].filter(Boolean).join(" ")}
                   style={{
                     position: i === 0 ? "relative" : "absolute",
                     inset: i === 0 ? undefined : 0,
