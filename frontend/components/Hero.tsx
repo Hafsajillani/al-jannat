@@ -130,174 +130,196 @@ function SliderSection() {
     <>
       <style>{`
 
-        /* ── Shared grid texture (reusable) ── */
-        .hero-grid-texture {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background-image:
-            linear-gradient(to right, rgba(180,176,168,0.35) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(180,176,168,0.35) 1px, transparent 1px);
-          background-size: 40px 40px;
-        }
-
-        /* ─── MOBILE (≤ 767px) ─── */
-        @media (max-width: 767px) {
-
-          .hero-section {
-            min-height: unset !important;
-            background: #F8F6F1 !important;
-          }
-
-          .hero-grid {
-            display: flex !important;
-            flex-direction: column !important;
-            min-height: unset !important;
-            background: #F8F6F1 !important;
-            position: relative !important;
-          }
-
-          /* Grid texture covers the ENTIRE hero on mobile */
-          .hero-grid > .hero-grid-texture {
-            display: block !important;
-            z-index: 0 !important;
-          }
-
-          /* ── 1. Content block (top) ── */
-          .hero-left {
-            order: 1 !important;
-            width: 100% !important;
-            padding: 36px 22px 20px !important;
-            border-right: none !important;
-            background: transparent !important;
-            position: relative !important;
-            z-index: 1 !important;
-          }
-
-          /* Hide texture inside right panel on mobile — parent covers it */
-          .hero-right > .hero-grid-texture {
-            display: none !important;
-          }
-
-          .hero-heading {
-            font-size: clamp(42px, 12vw, 62px) !important;
-            line-height: 1.0 !important;
-            margin-bottom: 10px !important;
-          }
-
-          .hero-body {
-            font-size: 13px !important;
-            line-height: 1.75 !important;
-            max-width: 100% !important;
-            margin-bottom: 14px !important;
-          }
-
-          .hero-tagline {
-            font-size: 15px !important;
-            margin-bottom: 10px !important;
-          }
-
-          /* ── Buttons: side by side on mobile ── */
-          .hero-buttons {
-            flex-direction: row !important;
-            gap: 10px !important;
-            width: 100% !important;
-          }
-
-          .hero-btn-primary,
-          .hero-btn-secondary {
-            flex: 1 !important;
-            width: auto !important;
-            justify-content: center !important;
-            text-align: center !important;
-            padding: 13px 10px !important;
-            font-size: 9.5px !important;
-            border-radius: 7px !important;
-            white-space: nowrap !important;
-          }
-
-          /* ── 2. Image box (below content, seamless) ── */
-          /* ── 2. Image box (below content, seamless) ── */
-.hero-right {
-  order: 2 !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 320px !important;
-  max-height: none !important;
-  border-right: none !important;
-  border-top: none !important;
-  background: transparent !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  position: relative !important;
-  overflow: visible !important;
-  padding: 0px 24px 50px !important;
-  z-index: 1 !important;
-}
-
-.hero-machine-wrap {
-  width: 92% !important;
-  padding: 0 !important;
-  max-height: none !important;
-  min-height: 260px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-          .hero-machine-photocopy {
-            margin-top: 20px !important;
-          }
-
-          .hero-watermark {
-            font-size: clamp(60px, 22vw, 100px) !important;
-            top: 8px !important;
-            left: 12px !important;
-          }
-
-          .hero-dots { display: flex !important; }
-        }
-          /* ── Slides 2–4: scale up images on mobile ── */
-/* ── Slides 2–4: scale up images on MOBILE only ── */
-@media (max-width: 767px) {
-  .hero-machine-secondary {
-    transform: scale(1.5) !important;
-    transform-origin: center center !important;
-    padding: 0 !important;
+  /* ── Shared grid texture ── */
+  .hero-grid-texture {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(180,176,168,0.35) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(180,176,168,0.35) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
-}
 
-/* ── Desktop: slides 2–4 reset ── */
-@media (min-width: 768px) {
-  .hero-machine-secondary {
-    transform: none !important;
+  /* ─── MOBILE (≤ 767px) ─── */
+  @media (max-width: 767px) {
+
+    .hero-section {
+      min-height: unset !important;
+      background: #F8F6F1 !important;
+    }
+
+    .hero-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: unset !important;
+      background: #F8F6F1 !important;
+      position: relative !important;
+    }
+
+    .hero-grid > .hero-grid-texture {
+      display: block !important;
+      z-index: 0 !important;
+    }
+
+    /* ── Content block ── */
+    .hero-left {
+      order: 1 !important;
+      width: 100% !important;
+      padding: 36px 22px 20px !important;
+      border-right: none !important;
+      background: transparent !important;
+      position: relative !important;
+      z-index: 1 !important;
+    }
+
+    .hero-right > .hero-grid-texture {
+      display: none !important;
+    }
+
+    .hero-heading {
+      font-size: clamp(42px, 12vw, 62px) !important;
+      line-height: 1.0 !important;
+      margin-bottom: 10px !important;
+    }
+
+    .hero-body {
+      font-size: 13px !important;
+      line-height: 1.75 !important;
+      max-width: 100% !important;
+      margin-bottom: 14px !important;
+    }
+
+    .hero-tagline {
+      font-size: 15px !important;
+      margin-bottom: 10px !important;
+    }
+
+    .hero-buttons {
+      flex-direction: row !important;
+      gap: 10px !important;
+      width: 100% !important;
+    }
+
+    .hero-btn-primary,
+    .hero-btn-secondary {
+      flex: 1 !important;
+      width: auto !important;
+      justify-content: center !important;
+      text-align: center !important;
+      padding: 13px 10px !important;
+      font-size: 9.5px !important;
+      border-radius: 7px !important;
+      white-space: nowrap !important;
+    }
+
+    /* ── Image panel ── */
+    .hero-right {
+      order: 2 !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: unset !important;
+      max-height: none !important;
+      border-right: none !important;
+      border-top: none !important;
+      background: transparent !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      position: relative !important;
+      overflow: visible !important;
+      padding: 8px 20px 48px !important;
+      z-index: 1 !important;
+    }
+
+    /* ── Machine wrap ── */
+    .hero-machine-wrap {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding: 0 !important;
+      max-height: none !important;
+      min-height: unset !important;
+      position: relative !important;
+      display: block !important;
+    }
+
+    /* ── Hidden slides take ZERO space ── */
+    .hero-machine-wrap > div[style*="opacity: 0"],
+    .hero-machine-wrap > div[style*="opacity:0"] {
+      position: absolute !important;
+      inset: 0 !important;
+      pointer-events: none !important;
+    }
+
+    /* ── Visible slide flows naturally ── */
+    .hero-machine-wrap > div[style*="opacity: 1"],
+    .hero-machine-wrap > div[style*="opacity:1"] {
+      position: relative !important;
+      inset: unset !important;
+      width: 100% !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    /* ── ALL images: fill width, centered ── */
+    .hero-machine-wrap > div img {
+      width: 90vw !important;
+      max-width: 90vw !important;
+      height: auto !important;
+      max-height: none !important;
+      object-fit: contain !important;
+      display: block !important;
+      margin: 0 auto !important;
+    }
+
+    .hero-machine-photocopy {
+      margin-top: 0 !important;
+    }
+
+    .hero-watermark {
+      font-size: clamp(60px, 22vw, 100px) !important;
+      top: 8px !important;
+      left: 12px !important;
+    }
+
+    .hero-dots {
+      display: flex !important;
+      bottom: 24px !important;
+    }
   }
-}
 
-        /* Dots — hidden on desktop */
-        .hero-dots {
-          display: none;
-          position: absolute;
-          bottom: 10px;
-          left: 50%;
-          transform: translateX(-50%);
-          gap: 7px;
-          z-index: 20;
-        }
-        .hero-dot {
-          width: 6px; height: 6px;
-          border-radius: 50%;
-          background: #b8b4ac;
-          cursor: pointer;
-          transition: background 0.2s, transform 0.2s;
-          border: none;
-        }
-        .hero-dot.active {
-          background: #79A88B;
-          transform: scale(1.35);
-        }
-      `}</style>
+  /* ── Desktop: no overrides on secondary slides ── */
+  @media (min-width: 768px) {
+    .hero-machine-secondary {
+      transform: none !important;
+    }
+  }
+
+  /* ── Dots ── */
+  .hero-dots {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 7px;
+    z-index: 20;
+  }
+  .hero-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #b8b4ac;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    border: none;
+  }
+  .hero-dot.active {
+    background: #79A88B;
+    transform: scale(1.35);
+  }
+`}</style>
 
       <section
         id="home"
