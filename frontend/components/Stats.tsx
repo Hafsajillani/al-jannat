@@ -84,7 +84,7 @@ function StatBlock({
       {/* Label */}
       <div
         className="font-syne uppercase"
-        style={{ fontSize: "clamp(0.48rem, 1.8vw, 0.6rem)", letterSpacing: "0.22em", color: "rgba(248,246,241,0.3)" }}
+        style={{ fontSize: "clamp(0.48rem, 1.8vw, 0.6rem)", letterSpacing: "0.22em", color: "gray" }}
       >
         {label}
       </div>
