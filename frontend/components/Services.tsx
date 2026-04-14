@@ -62,7 +62,7 @@ const CARDS: ServiceCardData[] = [
     tags: ["Map Digitisation", "PDF Output", "TIFF · JPEG", "Archive"],
     ctaHref: "https://wa.me/923214577000",
     ctaLabel: "Book a Scan",
-    img: "/images/ser-2.jpg",
+    img: "/images/wide-scanning.png",
     imgAlt: "Wide format scanning",
   },
   {
@@ -101,6 +101,26 @@ const CARDS: ServiceCardData[] = [
     img: "/images/ser-4.jpg",
     imgAlt: "High speed photocopying",
   },
+  // ── NEW CARD ────────────────────────────────────────────────────────────────
+  {
+    id: "05",
+    num: "05",
+    category: "Binding & Finishing Studio",
+    name: "Thesis & Binding",
+    model: "Hard Bind · Spiral · Perfect Bind",
+    desc: "Complete thesis finishing under one roof — hard cover, spiral, perfect binding & lamination. University-spec covers with gold foil titling available.",
+    specs: [
+      { val: "6+", key: "Bind Types" },
+      { val: "A4/A3", key: "Max Size" },
+      { val: "1 Day", key: "Turnaround" },
+    ],
+    tags: ["Hard Cover", "Spiral", "Perfect Bind", "Gold Foil", "Lamination"],
+    ctaHref: "https://wa.me/923214577000",
+    ctaLabel: "Book Binding",
+    img: "/images/thesis.webp",
+    imgAlt: "Thesis and book binding services",
+  },
+  // ───────────────────────────────────────────────────────────────────────────
   {
     id: "06",
     num: "06",

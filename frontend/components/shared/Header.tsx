@@ -3,12 +3,22 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import { Cormorant_Garamond } from 'next/font/google';
+import localFont from 'next/font/local';
+import { Cormorant_Garamond, Geist_Mono } from 'next/font/google';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
   style: ['normal', 'italic'],
+});
+
+const zenDots = localFont({
+  src: '../../public/fonts/Zen_Dots/ZenDots-Regular.ttf',
+  display: 'swap',
+});
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
 });
 
 const productItems = [
@@ -56,20 +66,19 @@ const Header = () => {
           <Link href="/" className="flex flex-col flex-shrink-0 -space-y-4">
             <div className="flex items-baseline gap-2">
               <span
-                style={{ fontSize: '32px', }}
-                className={`${cormorant.className} leading-none font-semibold tracking-[-0.02em] italic`}
+                style={{ fontSize: '25px', letterSpacing: '-0.02em' }}
+                className={`${zenDots.className} leading-none flex items-center mb-2`}
               >
-                <span className="text-[#000]">Al </span>
-                <span className="text-[#79A88B]">Jannat</span>
+                <span className="text-[#000]">al jannat</span>
               </span>
               <span
-                style={{ height: '5px', width: '5px', backgroundColor: 'black', borderRadius: '50%', display: 'inline-block' }}
+                style={{ height: '5px', width: '5px', backgroundColor: '#79A88B', borderRadius: '50%', display: 'inline-block' }}
               ></span>
             </div>
 
             <span
-              style={{ fontSize: '10px', letterSpacing: '0.59em', color: '#000' }}
-              className="inline-block font-bold uppercase mt-4 pl-0"
+              style={{ fontSize: '14px', letterSpacing: '0.4em', color: '#79A88B' }}
+              className={`${geistMono.className} inline-block font-bold uppercase mt-3 pl-6`}
             >
               SCAN N PRINT
             </span>

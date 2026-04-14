@@ -37,7 +37,7 @@ const services = [
     subtitle: "at Its Finest",
     badge: "Flagship Scanner",
     body: "Our professional wide-format scanner handles everything from delicate vintage maps to fresh engineering drawings — every detail captured at true resolution, ready for archiving, reproduction, or digital delivery.",
-    img: "/images/ser-2.jpg",
+    img: "/images/wide-scanning.png",
     imgAlt: "Wide format scanning",
     specs: [
       { val: '42"', label: "Max Scan Width" },
@@ -56,7 +56,7 @@ const services = [
     img: "/images/ser-1.jpg",
     imgAlt: "HP DesignJet plotter printing",
     specs: [
-      { val: '44"', label: "Max Print Width" },
+      { val: '42"', label: "Max Print Width" },
       { val: "2400", label: "DPI Output" },
       { val: "A0+", label: "Max Size" },
       { val: "25s", label: "Per A1 Sheet" },

@@ -89,7 +89,7 @@ function SliderSection() {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [visible, setVisible] = useState(false);
-  const DURATION = 3000;
+  const DURATION = 5000;
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 60);

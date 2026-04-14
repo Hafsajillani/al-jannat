@@ -1,5 +1,18 @@
 "use client";
 
+import Link from 'next/link';
+import localFont from 'next/font/local';
+import { Geist_Mono } from 'next/font/google';
+
+const zenDots = localFont({
+  src: '../../public/fonts/Zen_Dots/ZenDots-Regular.ttf',
+  display: 'swap',
+});
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+});
+
 const LINKS = [
   "Plotter Printing",
   "Wide Format Scanning",
@@ -190,24 +203,26 @@ export default function Footer() {
         <div className="px-6 md:px-10 py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-5">
 
           {/* Brand — same as header */}
-          <div className="flex flex-col -space-y-3">
+          <Link href="/" className="flex flex-col flex-shrink-0 -space-y-4">
             <div className="flex items-baseline gap-2">
               <span
-                className="font-cormorant"
-                style={{ fontSize: "1.9rem", fontWeight: 600, fontStyle: "italic", lineHeight: 1, letterSpacing: "-0.02em" }}
+                style={{ fontSize: '25px', letterSpacing: '-0.02em' }}
+                className={`${zenDots.className} leading-none flex items-center mb-2`}
               >
-                <span style={{ color: "#000" }}>Al </span>
-                <span style={{ color: "#79A88B" }}>Jannat</span>
+                <span className="text-[#000]">al jannat</span>
               </span>
-              <span style={{ height: 4, width: 4, backgroundColor: "#000", borderRadius: "50%", display: "inline-block" }} />
+              <span
+                style={{ height: '5px', width: '5px', backgroundColor: '#79A88B', borderRadius: '50%', display: 'inline-block' }}
+              ></span>
             </div>
+
             <span
-              className="font-syne"
-              style={{ fontSize: "10px", letterSpacing: "0.52em", color: "#000", fontWeight: 700, textTransform: "uppercase", paddingTop: "10px" }}
+              style={{ fontSize: '14px', letterSpacing: '0.4em', color: '#79A88B' }}
+              className={`${geistMono.className} inline-block font-bold uppercase mt-3 pl-6`}
             >
               SCAN N PRINT
             </span>
-          </div>
+          </Link>
 
           {/* Tagline */}
           <span className="font-syne"
