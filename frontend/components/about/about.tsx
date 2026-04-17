@@ -193,7 +193,7 @@ function HowWeDeliver() {
             <div className="absolute overflow-hidden" style={{ top: 0, right: 0, width: "80%", height: "85%" }}>
               <img
                 className="w-full h-full object-cover"
-                src="/images/ser-2.jpg"
+                src="/images/wide-scanning.png"
                 alt="Plotter printer in operation"
                 onError={(e) => { (e.target as HTMLImageElement).parentElement!.style.background = "#d5d0c8"; (e.target as HTMLImageElement).style.display = "none"; }}
               />
@@ -307,11 +307,11 @@ const ClientIcons: Record<string, ReactElement> = {
 
 /* ── Collaboration logos ── */
 const COLLAB_LOGOS = [
-  { id: 1, src: "/images/bop-logo.png",        alt: "Bank of Punjab" },
-  { id: 2, src: "/images/logo-descon.jpg",     alt: "Descon Engineering" },
-  { id: 3, src: "/images/nes-pack.jpg",        alt: "Nes Pack" },
-  { id: 4, src: "/images/barclays-logo.png",   alt: "Barclays" },
-  { id: 5, src: "/images/silk-bank.jpg",       alt: "Silk Bank" },
+  { id: 1, src: "/images/bop-logo.png", alt: "Bank of Punjab" },
+  { id: 2, src: "/images/logo-descon.jpg", alt: "Descon Engineering" },
+  { id: 3, src: "/images/nes-pack.jpg", alt: "Nes Pack" },
+  { id: 4, src: "/images/barclays-logo.png", alt: "Barclays" },
+  { id: 5, src: "/images/silk-bank.jpg", alt: "Silk Bank" },
   { id: 6, src: "/images/UBL-Logo-Vector.png", alt: "UBL" },
 ];
 
