@@ -79,7 +79,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className="fixed pointer-events-none z-50 rounded-full border-2 bg-transparent will-change-transform"
+      className="fixed pointer-events-none z-[10000] rounded-full border-1 bg-transparent will-change-transform"
       style={{
         width: "40px",
         height: "40px",

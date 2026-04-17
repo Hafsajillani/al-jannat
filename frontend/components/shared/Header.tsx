@@ -46,7 +46,7 @@ const Header = () => {
 
   const getNavLink = (item: string) => {
     switch (item.toLowerCase()) {
-      case "home": return "/#home";
+      case "home": return "/";
       case "about us": return "/about";
       case "process": return "/#process";
       case "services": return "/#services";
@@ -109,7 +109,7 @@ const Header = () => {
                             {productItems.map(prod => (
                               <Link
                                 key={prod}
-                                href={createSlug(prod)}
+                                href="/#services"
                                 onClick={() => setIsServicesOpen(false)}
                                 className="px-6 py-2.5 hover:bg-[#F8F6F1] text-[13px] font-medium text-gray-600 hover:text-[#79A88B] transition-colors whitespace-nowrap block tracking-wide"
                               >
@@ -208,7 +208,7 @@ const Header = () => {
                     {productItems.map(prod => (
                       <Link
                         key={prod}
-                        href={createSlug(prod)}
+                        href="/#services"
                         onClick={() => { setIsMobileMenuOpen(false); setIsMobileServicesOpen(false); }}
                         className="text-[13px] font-medium text-gray-500 hover:text-[#79A88B] transition-colors"
                       >

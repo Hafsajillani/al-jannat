@@ -112,7 +112,7 @@ export default function ProcessAndCTA() {
       <section
         ref={procRef as React.RefObject<HTMLElement>}
         id="process"
-        className="scroll-mt-[72px] px-6 py-20 md:px-16 md:py-32"
+        className="scroll-mt-[100px] px-6 py-20 md:px-16 md:py-32"
         style={{ background: "#F8F6F1" }}
       >
         {/* Header */}

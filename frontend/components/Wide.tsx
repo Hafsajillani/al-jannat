@@ -349,7 +349,7 @@ export default function WideFormatFeature() {
         }
         .wide-heading-br { display: none; }
       `}</style>
-      <section id="wide-format" style={{ background: BG, padding: "clamp(3rem, 8vw, 5.5rem) 0" }}>
+      <section id="wide-format" className="scroll-mt-[100px]" style={{ background: BG, padding: "clamp(3rem, 8vw, 5.5rem) 0" }}>
         <div className="mx-auto max-w-[1320px] px-4 sm:px-6 md:px-10 lg:px-12">
 
           {/* Section header */}

@@ -25,7 +25,7 @@ const Chatbot = () => {
     ]);
     const [inputValue, setInputValue] = useState('');
     const [isTyping, setIsTyping] = useState(false);
-    const messagesEndRef = useRef(null); // Removed TypeScript annotation
+    const messagesEndRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -71,7 +71,7 @@ const Chatbot = () => {
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 text-base">
+        <div className="fixed bottom-6 right-6 z-[9999] text-base">
             {isOpen && (
                 <div className="absolute bottom-20 right-0 w-[320px] sm:w-[360px] max-h-[80vh] h-[500px] bg-white rounded-xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 duration-300">
                     <div style={{ backgroundColor: '#79A88B' }} className="text-white px-5 py-4 flex justify-between items-center shrink-0">

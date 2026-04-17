@@ -491,7 +491,7 @@ export default function ServicesSection() {
 
       <section
         id="services"
-        className="overflow-hidden relative"
+        className="overflow-hidden relative scroll-mt-[100px]"
         style={{ background: "#0E0D0A", paddingTop: "5rem", fontFamily: SYNE }}
       >
         {/* ── Header ─────────────────────────────────────────────────────────── */}

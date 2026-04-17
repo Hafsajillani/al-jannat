@@ -214,7 +214,7 @@ export default function Contact() {
         .submit-btn span { position: relative; z-index: 1; }
       `}</style>
 
-      <section id="contact" className="scroll-mt-[72px] grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
+      <section id="contact" className="scroll-mt-[100px] grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
 
         {/* ── LEFT ── */}
         <div
