@@ -174,13 +174,14 @@ export default function SmartLandEditorial() {
 
 
                                 {/* CTAs */}
-                                <div className="grid grid-cols-2 gap-3">
+                                {/* CTAs */}
+                                <div className="flex gap-3">
                                     <a href={WA_LINK} target="_blank" rel="noreferrer"
-                                        className="inline-flex items-center justify-center text-center font-['Syne'] text-[0.6rem] max-md:text-[0.55rem] tracking-[.1em] uppercase font-semibold bg-[#1a1a18] text-white no-underline transition-colors duration-300 hover:bg-[#4a7c59] px-3 py-4 rounded-[10px]">
+                                        className="flex-1 inline-flex items-center justify-center text-center font-['Syne'] text-[0.6rem] tracking-[.1em] uppercase font-semibold bg-[#1a1a18] text-white no-underline transition-colors duration-300 hover:bg-[#4a7c59] px-2 py-3.5 rounded-[6px] whitespace-nowrap">
                                         Book via WhatsApp
                                     </a>
                                     <button
-                                        className="inline-flex items-center justify-center text-center font-['Syne'] text-[0.6rem] max-md:text-[0.55rem] tracking-[.1em] uppercase font-semibold bg-transparent text-[#4a7c59] transition-all duration-300 hover:bg-[#4a7c59] hover:text-white cursor-pointer px-3 py-4 rounded-[10px]"
+                                        className="flex-1 inline-flex items-center justify-center text-center font-['Syne'] text-[0.6rem] tracking-[.1em] uppercase font-semibold bg-transparent text-[#4a7c59] transition-all duration-300 hover:bg-[#4a7c59] hover:text-white cursor-pointer px-2 py-3.5 rounded-[6px] whitespace-nowrap"
                                         style={{ border: "1px solid rgba(74,124,89,0.35)" }}>
                                         Get a Quote
                                     </button>
