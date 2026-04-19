@@ -66,7 +66,7 @@ const services = [
 
 const WA_NUMBER = "923214577000";
 const WA_LINK = `https://wa.me/${WA_NUMBER}`;
-const PDF_LINK = "/downloads/smart-land-brochure.pdf";
+const PDF_LINK = "/smart-land-services.pdf";
 
 function DownloadIcon() {
     return (
@@ -93,7 +93,7 @@ export default function SmartLandEditorial() {
         <section className="bg-[#f4f1eb] overflow-hidden pb-0 mt-[-92px] pt-[92px]">
 
             {/* ── HEADER ── */}
-            <div className="text-center px-6 pt-0 pb-[72px] border-b border-[rgba(74,124,89,0.14)]">
+            <div className="text-center px-6 py-[72px] border-b border-[rgba(74,124,89,0.14)]">
                 <div className="flex items-center justify-center gap-4 font-['Syne'] font-bold text-[10px] tracking-[.28em] uppercase text-[#4a7c59] mb-5">
                     <span className="block w-10 h-px bg-[#4a7c59]" />
                     Smart Land Services
@@ -110,7 +110,7 @@ export default function SmartLandEditorial() {
             {/* ── SERVICE CARDS ── */}
             {services.map((s, idx) => (
                 <React.Fragment key={s.num}>
-                    <div className="mx-7 my-10 border border-[rgba(74,124,89,0.22)] rounded-[4px] overflow-hidden bg-white shadow-[0_2px_24px_rgba(26,26,24,0.06)]">
+                    <div className="mx-7 mt-4 mb-10 border border-[rgba(74,124,89,0.22)] rounded-[4px] overflow-hidden bg-white shadow-[0_2px_24px_rgba(26,26,24,0.06)]">
                         <div className={`flex ${s.flip ? "flex-row-reverse" : "flex-row"} max-md:flex-col`}>
 
                             {/* IMAGE PANEL */}
@@ -136,9 +136,7 @@ export default function SmartLandEditorial() {
                                         {s.badge}
                                     </span>
                                     {/* Ghost number */}
-                                    <span className={`absolute bottom-3.5 z-10 font-['Cormorant_Garamond'] text-[72px] font-bold italic text-[#CACACA] leading-none select-none pointer-events-none drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] ${s.flip ? "right-3.5" : "left-3.5"}`}>
-                                        {s.num}
-                                    </span>
+                                    <span className={`absolute bottom-3.5 z-10 font-['Cormorant_Garamond'] text-[72px] max-md:text-[52px] font-bold italic text-[#CACACA] leading-none select-none pointer-events-none drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] max-md:bottom-6 ${s.flip ? "right-3.5" : "left-3.5"}`}>{s.num}</span>
                                 </div>
                             </div>
 
@@ -174,15 +172,18 @@ export default function SmartLandEditorial() {
                                     ))}
                                 </div>
 
+
                                 {/* CTAs */}
-                                <div className="flex flex-wrap gap-2.5 max-md:flex-col">
+                                <div className="grid grid-cols-2 gap-3">
                                     <a href={WA_LINK} target="_blank" rel="noreferrer"
-                                        className="font-['Syne'] text-[10px] tracking-[.18em] uppercase font-bold bg-[#1a1a18] text-white rounded-[6px] px-5 py-3 hover:bg-[#4a7c59] transition-colors no-underline text-center max-md:w-full max-md:py-4">
+                                        className="inline-flex items-center justify-center text-center font-['Syne'] text-[0.6rem] max-md:text-[0.55rem] tracking-[.1em] uppercase font-semibold bg-[#1a1a18] text-white no-underline transition-colors duration-300 hover:bg-[#4a7c59] px-3 py-4 rounded-[10px]">
                                         Book via WhatsApp
                                     </a>
-                                    <a href="/#contact" className="font-['Syne'] text-[10px] tracking-[.18em] uppercase font-bold bg-transparent text-[#1a1a18] border border-[rgba(26,26,24,0.25)] rounded-[6px] px-5 py-3 hover:border-[#4a7c59] hover:text-[#4a7c59] transition-colors no-underline text-center max-md:w-full max-md:py-4">
+                                    <button
+                                        className="inline-flex items-center justify-center text-center font-['Syne'] text-[0.6rem] max-md:text-[0.55rem] tracking-[.1em] uppercase font-semibold bg-transparent text-[#4a7c59] transition-all duration-300 hover:bg-[#4a7c59] hover:text-white cursor-pointer px-3 py-4 rounded-[10px]"
+                                        style={{ border: "1px solid rgba(74,124,89,0.35)" }}>
                                         Get a Quote
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
