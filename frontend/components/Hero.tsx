@@ -53,7 +53,7 @@ const slides = [
     headingBlack: "HP Design",
     headingGreen: "Jet",
     body: "CAD plotting & architectural drawings printed to razor-sharp precision — up to A0+ format. Same-day delivery for architects, engineers & designers.",
-    btn1: { text: "GET A QUOTE", href: "/quote" },
+    btn1: { text: "GET A QUOTE", href: "/#contact" },
     btn2: { text: "WHATSAPP US", href: "https://wa.me/923214577000", isWhatsApp: true },
   },
   {
@@ -62,8 +62,8 @@ const slides = [
     headingBlack: "Wide Format",
     headingGreen: "Scanning",
     body: "Scan maps, plans & oversized documents up to 42\" wide at 1200 DPI — zero distortion, perfect digitisation for archiving or reproduction.",
-    btn1: { text: "REQUEST A SCAN", href: "/quote" },
-    btn2: { text: "LEARN MORE", href: "/services" },
+    btn1: { text: "REQUEST A SCAN", href: "/#contact" },
+    btn2: { text: "LEARN MORE", href: "/#services" },
   },
   {
     image: "/images/Photocopy.png",
@@ -71,8 +71,8 @@ const slides = [
     headingBlack: "Digital",
     headingGreen: "Printing",
     body: "Vibrant full-colour prints on banners, brochures, posters & marketing materials — fast turnaround, professional finish every time.",
-    btn1: { text: "START YOUR ORDER", href: "/order" },
-    btn2: { text: "SEE ALL MACHINES", href: "/machines" },
+    btn1: { text: "START YOUR ORDER", href: "/#contact" },
+    btn2: { text: "SEE ALL MACHINES", href: "/#services" },
   },
   {
     image: "/images/digital-print.png",
@@ -80,7 +80,7 @@ const slides = [
     headingBlack: "Photocopy",
     headingGreen: "Services",
     body: "Crisp B&W and full-colour photocopying for single sheets to bulk runs. Collation, binding & stapling all in-house.",
-    btn1: { text: "CONTACT US", href: "/contact" },
+    btn1: { text: "CONTACT US", href: "/#contact" },
     btn2: { text: "WHATSAPP US", href: "https://wa.me/923214577000", isWhatsApp: true },
   },
 ];

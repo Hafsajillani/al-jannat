@@ -26,7 +26,7 @@ const productItems = [
   "High Speed Photocopy", "Business Cards", "Signs & Banners", "Invitations & Events"
 ];
 
-const mainNavItems = ["Home", "Services", "Wide Format", "Process", "About Us"];
+const mainNavItems = ["Home", "Services", "Wide Format", "Process", "Smart Land Services", "About Us"];
 
 const WhatsAppIcon = () => (
   <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
@@ -39,7 +39,6 @@ const Header = () => {
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isWhatsAppHovered, setIsWhatsAppHovered] = useState(false);
-  const [isQuoteHovered, setIsQuoteHovered] = useState(false);
 
   const createSlug = (item: string) =>
     `/${item.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`;
@@ -85,8 +84,8 @@ const Header = () => {
           </Link>
 
           {/* Desktop Nav - unchanged */}
-          <nav className="hidden lg:flex items-center gap-10">
-            <ul className="flex items-center gap-10">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-10">
+            <ul className="flex items-center gap-6 xl:gap-10">
               {mainNavItems.map((item) => (
                 <li key={item} className="relative">
                   {item === "Services" ? (
@@ -151,22 +150,6 @@ const Header = () => {
                 <WhatsAppIcon />
                 WhatsApp
               </a>
-
-              <Link
-                href="/quote"
-                onMouseEnter={() => setIsQuoteHovered(true)}
-                onMouseLeave={() => setIsQuoteHovered(false)}
-                style={{
-                  whiteSpace: 'nowrap', display: 'flex', alignItems: 'center',
-                  padding: '12px 24px', borderRadius: '6px', border: '1px solid #111',
-                  fontSize: '12px', fontWeight: '600', textDecoration: 'none',
-                  transition: 'all 0.2s ease',
-                  backgroundColor: isQuoteHovered ? 'transparent' : '#111',
-                  color: isQuoteHovered ? '#111' : '#F8F6F1',
-                }}
-              >
-                Get a Quote
-              </Link>
             </div>
           </nav>
 
@@ -230,12 +213,6 @@ const Header = () => {
                 <WhatsAppIcon />
                 WhatsApp
               </a>
-              <Link
-                href="/quote"
-                className="flex items-center justify-center gap-2 px-5 py-3 bg-[#111] border border-[#111] text-[13px] font-medium text-[#F8F6F1] rounded-[6px] hover:bg-transparent hover:text-[#111] transition-all"
-              >
-                Get a Quote
-              </Link>
             </div>
           </div>
         )}
