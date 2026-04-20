@@ -4,7 +4,7 @@ import React from "react";
 const services = [
     {
         num: "01", eyebrow: "Land Records", model: "Computerised · Google Earth",
-        title: "Shajra", em: "Maps", badge: "Akshar Shajraat",
+        title: "Shajra", em: "Maps", badge: "Aks Shajra Jaat",
         desc: "Our digitised shajra maps place every land parcel on Google Earth with pinpoint accuracy — khasra-wise, party-wise, registry-wise and qabza-wise records for Lahore, Sheikhupura, Kasur and surrounding districts.",
         specs: [
             { val: "3", valEm: "Districts", label: "Coverage area" },
@@ -16,7 +16,7 @@ const services = [
     },
     {
         num: "02", eyebrow: "Mapping & GIS", model: "Land Mgmt · Geo Tagging · CAD",
-        title: "Aks Shajrajaat", em: "Available", badge: "available",
+        title: "Aks Shajra Jaat", em: "Available", badge: "available",
         desc: "Geo-referenced property maps overlaid on satellite imagery — covering land management systems, Google Khasra plans, business management maps and geo-tagging for precise boundary identification and plot verification.",
         specs: [
             { val: "GIS", valEm: "Grade", label: "Accuracy" },

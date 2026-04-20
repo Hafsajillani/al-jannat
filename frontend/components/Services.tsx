@@ -51,7 +51,7 @@ const CARDS: ServiceCardData[] = [
     id: "02",
     num: "02",
     category: "Colortrac LF 40e",
-    name: "Wide Format Prints",
+    name: "Wide Format Scanning",
     model: "Maps · Plans · Oversized Docs",
     desc: '42" wide scanning at 1200 DPI — zero distortion. Perfect for archiving maps, engineering drawings & vintage documents.',
     specs: [
